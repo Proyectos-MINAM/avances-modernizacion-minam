@@ -48,6 +48,9 @@ import {
   espaciosDialogoReales,
 } from '@/data/minam-real';
 import { saveCsv, cn } from '@/lib/utils';
+import { officialTreeFor, treeCsv } from '@/data/official-trees';
+import ProblemTreeView from './problem-tree';
+import { driveFile, driveFolder, mesaFolders, treeFiles, diagnosisFiles, meetingCounts, diagnosisDates, diagnosisCooperation, diagnosisProblems } from '@/data/documentary';
 import { Button, Card, Input, Select, Textarea, Pill } from './ui';
 
 function statusTone(st: string): 'success' | 'warning' | 'danger' | 'neutral' {
@@ -68,7 +71,7 @@ function cooperatorBadgeClass(org: string) {
 
 function Heading({ title, subtitle, action }: { title: string; subtitle?: string; action?: ReactNode }) {
   return (
-    <div className="mb-7 flex flex-wrap items-start justify-between gap-4">
+    <div className="mb-7 flex flex-wrap items-start justify-between gap-4 border-b border-border pb-5">
       <div>
         <h1 className="text-2xl font-bold text-ink md:text-[26px]">{title}</h1>
         {subtitle && <p className="mt-1 text-sm text-muted">{subtitle}</p>}
@@ -92,7 +95,7 @@ function Kpi({
   color?: 'green' | 'blue' | 'gold' | 'red';
 }) {
   return (
-    <Card className="relative min-h-[120px] overflow-hidden p-5">
+    <Card className="relative min-h-[120px] overflow-hidden p-5 border-t-[3px] border-t-pine">
       <div className="flex items-start justify-between gap-2">
         <span className="text-xs font-medium text-muted">{title}</span>
         <span
@@ -226,6 +229,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
   const currentTree = useMemo(() => {
     return arbolesProblemasReal.find((a) => a.id === selectedTreeId) || arbolesProblemasReal[0];
   }, [selectedTreeId]);
+  const officialTree = officialTreeFor(currentTree.id);
 
   const filteredCorrespondencia = useMemo(() => {
     return correspondenciaCooperantesMesas.filter((c) => {
@@ -302,7 +306,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
         )}
       >
         {/* Header con Logo MINAM oficial */}
-        <div className="border-b border-border px-5 py-4 bg-white">
+        <div className="border-b border-border px-5 py-6 bg-white">
           <div className="flex items-center justify-between gap-2">
             <Link href="/" className="group block focus:outline-none" onClick={() => setMenuOpen(false)}>
               <Image
@@ -313,11 +317,8 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 priority
                 className="h-auto w-full max-w-[190px] object-contain transition-opacity group-hover:opacity-90"
               />
-              <div className="mt-2 text-xs font-semibold text-pine">
+              <div className="mt-4 text-sm font-semibold text-ink">
                 Modernización Institucional
-              </div>
-              <div className="text-[11px] text-muted">
-                Sistema de Gestión y Seguimiento
               </div>
             </Link>
             <button
@@ -579,9 +580,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       <Download size={16} /> Exportar Hitos CSV
                     </Button>
                     <Link href="/actualizar">
-                      <Button>
-                        <FilePenLine size={16} /> Actualizar avance
-                      </Button>
+                      <Button><FilePenLine size={16} /> Actualizar avance</Button>
                     </Link>
                   </div>
                 }
@@ -591,35 +590,35 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
                 <Kpi
                   title="Mesas de Trabajo"
-                  value={cifrasOficiales.mesasTrabajo + " instaladas"}
+                  value={cifrasOficiales.mesasTrabajo}
                   detail="SG y Viceministerios"
                   icon={Layers}
                   color="green"
                 />
                 <Kpi
-                  title="Sesiones con Mesas"
-                  value={cifrasOficiales.sesionesMesas + " realizadas"}
-                  detail="35 diagnóstico + 11 plenarias"
+                  title="Reuniones del proceso"
+                  value={57}
+                  detail="35 formulación · 11 ministro · 11 aprobación"
                   icon={CalendarDays}
                   color="blue"
                 />
                 <Kpi
                   title="Sesiones con Ministro"
-                  value={cifrasOficiales.sesionesMinistro + " concluidas"}
+                  value={cifrasOficiales.sesionesMinistro}
                   detail="Validación directa en Despacho"
                   icon={Target}
                   color="green"
                 />
                 <Kpi
                   title="Árboles y Diagnósticos"
-                  value={cifrasOficiales.arbolesAprobados + " aprobados"}
+                  value={cifrasOficiales.arbolesAprobados}
                   detail="100% formalizados en actas"
                   icon={ClipboardCheck}
                   color="gold"
                 />
                 <Kpi
                   title="Socios Cooperantes"
-                  value={cifrasOficiales.cooperantes + " organismos"}
+                  value={cifrasOficiales.cooperantes}
                   detail="BM, BID, UE, GIZ, SERVIR"
                   icon={Handshake}
                   color="blue"
@@ -635,27 +634,25 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       Desde la vigencia del D.S. N.° 012-2026-MINAM hasta la aprobación del Informe Final de Reorganización
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-[#e6f4ec] px-3 py-1 text-xs font-semibold text-[#28754a]">
-                      Día 64 de 120 (53% transcurrido)
-                    </span>
-                  </div>
+                  <div className="text-xs font-medium text-muted">Periodo del proceso</div>
                 </div>
 
                 <div className="mt-5 space-y-2">
-                  <div className="flex justify-between text-xs text-muted">
+                  <div className="institutional-horizon-labels flex justify-between text-xs text-muted">
                     <span className="font-semibold text-pine">17 Set 2026 (D.S. 012)</span>
                     <span className="font-medium text-[#2d5c4e]">16 Oct (12 Árboles)</span>
                     <span className="font-medium text-[#0d735a]">17 Nov (70 Días / Diálogo)</span>
                     <span className="font-medium text-[#8a5d14]">17 Dic (Medidas)</span>
                     <span className="font-semibold text-ink">15 Ene 2027 (Informe Final)</span>
                   </div>
-                  <div className="h-3 w-full overflow-hidden rounded-full bg-[#e8efed]">
-                    <div className="h-full rounded-full bg-pine transition-all duration-500" style={{ width: '53%' }} />
+                  <div className="grid grid-cols-3 gap-1" aria-label="Tres fases del proceso">
+                    <div className="h-1.5 bg-[#789386]" />
+                    <div className="h-1.5 bg-[#9aaea4]" />
+                    <div className="h-1.5 bg-[#cbd6d0]" />
                   </div>
                   <div className="flex justify-between text-[11px] text-muted pt-1">
                     <span>Fase 1: Diagnóstico e Instalación</span>
-                    <span>Fase 2: Articulación y Validación (Actual)</span>
+                    <span>Fase 2: Articulación y Validación</span>
                     <span>Fase 3: Medidas y Cierre Final</span>
                   </div>
                 </div>
@@ -672,7 +669,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       tipoHitoFilter === 'todos' ? 'bg-pine text-white' : 'text-muted hover:text-ink'
                     )}
                   >
-                    Todos los hitos (25)
+                    Todos los hitos ({hitosHojaRuta.length})
                   </button>
                   <button
                     type="button"
@@ -682,7 +679,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       tipoHitoFilter === 'realizados' ? 'bg-pine text-white' : 'text-muted hover:text-ink'
                     )}
                   >
-                    <CheckCircle2 size={14} /> Hitos Realizados (16)
+                    <CheckCircle2 size={14} /> Hitos realizados ({hitosHojaRuta.filter(h => h.tipo === 'Realizado').length})
                   </button>
                   <button
                     type="button"
@@ -692,7 +689,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       tipoHitoFilter === 'pendientes' ? 'bg-pine text-white' : 'text-muted hover:text-ink'
                     )}
                   >
-                    <Clock3 size={14} /> Próximos / Pendientes (9)
+                    <Clock3 size={14} /> Pendientes ({hitosHojaRuta.filter(h => h.tipo === 'Pendiente').length})
                   </button>
                 </div>
 
@@ -809,71 +806,25 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 </div>
               </Card>
 
-              {/* GRID DE MESAS */}
-              <div className="mb-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {filteredMesas.map((m) => (
-                  <Card
-                    key={m.id}
-                    onClick={() => {
-                      setSelectedMesaId(m.id);
-                      document.getElementById('detalle-mesa-seleccionada')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={cn(
-                      'flex cursor-pointer flex-col p-5 transition hover:border-pine/60 hover:shadow-md',
-                      selectedMesaId === m.id ? 'border-pine ring-2 ring-pine/20' : 'border-border'
-                    )}
-                  >
-                    <div className="flex items-start justify-between gap-2 border-b border-border pb-3">
-                      <span className="rounded bg-[#e8f3ef] px-2 py-0.5 text-xs font-bold text-pine">
-                        MESA {String(m.id).padStart(2, '0')}
-                      </span>
-                      <span className={cn('rounded border px-2 py-0.5 text-[11px] font-semibold', cooperatorBadgeClass(m.cooperante))}>
-                        {m.cooperante}
-                      </span>
+              <div className="record-list mb-8">
+                <div className="record-list-head"><span>Mesas de trabajo</span><span>{filteredMesas.length} registros</span></div>
+                {filteredMesas.map(m => (
+                  <div key={m.id} className={cn('record-strip mesa-strip', selectedMesaId===m.id && 'record-active')}>
+                    <div className="record-number"><span>MESA</span><strong>{String(m.id).padStart(2,'0')}</strong></div>
+                    <div className="record-main">
+                      <h3>{m.nombre}</h3>
+                      <p className="record-meta">Líder: {m.lider}</p>
+                      <p className="record-summary">{m.estadoTrabajo}</p>
                     </div>
-
-                    <h3 className="mt-3 text-sm font-semibold leading-snug text-ink min-h-[42px]">{m.nombre}</h3>
-
-                    <div className="mt-2 text-xs text-muted">
-                      <span className="font-semibold text-[#3b535b]">Líder responsable: </span>
-                      {m.lider}
+                    <div className="record-side">
+                      <span className="record-label">Cooperante</span><span className="font-medium">{m.cooperante}</span>
+                      <span className="record-meta mt-2 inline-flex items-center gap-1"><UsersRound size={14}/> {m.integrantes.length} integrantes</span>
+                      <span className="record-meta inline-flex items-center gap-1 text-pine"><CheckCircle2 size={14}/> Árbol aprobado</span>
                     </div>
-
-                    <div className="mt-3 rounded-lg border border-[#e5eeec] bg-[#f8faf9] p-3">
-                      <div className="flex items-center justify-between text-xs font-semibold text-[#294c44] mb-1.5">
-                        <span className="flex items-center gap-1.5">
-                          <UsersRound size={14} /> Integrantes ({m.integrantes.length})
-                        </span>
-                        <span className="text-[11px] text-muted">Órganos acreditados</span>
-                      </div>
-                      <div className="flex flex-wrap gap-1 text-[11px] text-[#415e57]">
-                        {m.integrantes.slice(0, 4).map((ing, i) => (
-                          <span key={i} className="rounded bg-white px-1.5 py-0.5 border border-[#d8e6e3]">
-                            {ing.split(':')[0]}
-                          </span>
-                        ))}
-                        {m.integrantes.length > 4 && (
-                          <span className="rounded bg-white px-1.5 py-0.5 border border-[#d8e6e3] text-muted">
-                            +{m.integrantes.length - 4} más
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className="mt-3 text-xs leading-relaxed text-muted line-clamp-2">
-                      {m.estadoTrabajo}
-                    </p>
-
-                    <div className="mt-auto flex items-center justify-between border-t border-border pt-3 text-xs">
-                      <span className="inline-flex items-center gap-1 text-pine font-medium">
-                        <CheckCircle2 size={14} /> Árbol Aprobado
-                      </span>
-                      <span className="font-semibold text-pine flex items-center gap-1 hover:underline">
-                        Ver detalle <ChevronRight size={14} />
-                      </span>
-                    </div>
-                  </Card>
+                    <button type="button" className="record-action" aria-pressed={selectedMesaId===m.id} onClick={()=>{setSelectedMesaId(m.id);document.getElementById('detalle-mesa-seleccionada')?.scrollIntoView({behavior:'smooth',block:'start'});}}>Ver detalle <ChevronRight size={16}/></button>
+                  </div>
                 ))}
+                {filteredMesas.length===0 && <Empty/>}
               </div>
 
               {/* DETALLE AMPLIADO DE LA MESA SELECCIONADA */}
@@ -903,7 +854,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                           })
                         }
                       >
-                        <Eye size={15} /> Ver Árbol Oficial (PPT)
+                        <Eye size={15} /> Ver árbol
                       </Button>
                     )}
                     {selectedMesa.imagenActa && (
@@ -917,7 +868,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                           })
                         }
                       >
-                        <Eye size={15} /> Ver Acta Oficial (PPT)
+                        <Eye size={15} /> Ver acta
                       </Button>
                     )}
                   </div>
@@ -944,6 +895,11 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                     </h3>
                     <div className="mt-3 rounded-lg border border-[#e0ece8] bg-[#fbfdfc] p-4 text-xs leading-relaxed text-[#26443c]">
                       {selectedMesa.estadoTrabajo}
+                      <p className="mt-3 border-t border-border pt-3"><strong>Problema identificado:</strong> {diagnosisProblems[selectedMesa.id-1]}</p>
+                      <p className="mt-2"><strong>Aprobación del diagnóstico:</strong> {diagnosisDates[selectedMesa.id-1]}</p>
+                      <p className="mt-2"><strong>Reuniones del proceso:</strong> {meetingCounts[selectedMesa.id-1]}</p>
+                      <p className="mt-2"><strong>Cooperante según informe parcial:</strong> {diagnosisCooperation[selectedMesa.id-1]}</p>
+                      <p className="mt-2 text-muted">Fuente: Informe N.° 000544-2026-SG-OGPP-OPM.</p>
                     </div>
 
                     <div className="mt-4 grid grid-cols-2 gap-3">
@@ -973,7 +929,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             <>
               <Heading
                 title="Mesas de Trabajo: Sesiones Realizadas"
-                subtitle="Registro oficial de las 46 sesiones de trabajo técnico, 11 sesiones con el Ministro y actas de acuerdos formales"
+                subtitle="Resumen del informe parcial y registros disponibles de las sesiones"
                 action={
                   <Button variant="secondary" onClick={() => saveCsv(sesionesReales, 'sesiones-minam-oficial.csv')}>
                     <Download size={16} /> Exportar Bitácora CSV
@@ -982,10 +938,10 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <Kpi title="Sesiones con Mesas" value={cifrasOficiales.sesionesMesas} detail="35 diagnóstico + 11 plenarias" icon={CalendarDays} color="green" />
-                <Kpi title="Sesiones con Ministro" value={cifrasOficiales.sesionesMinistro} detail="Validación directa en Despacho" icon={Target} color="blue" />
-                <Kpi title="Actas Formalizadas" value="100%" detail="12 diagnósticos preliminares" icon={FileCheck2} color="green" />
-                <Kpi title="Mesas Convocadas" value="11 mesas" detail="Quórum pleno y asistencia" icon={UsersRound} color="gold" />
+                <Kpi title="Reuniones del proceso" value={57} detail="Informe parcial de los 70 días" icon={CalendarDays} color="green" />
+                <Kpi title="Formulación de árboles" value={35} icon={GitFork} color="blue" />
+                <Kpi title="Reuniones con el ministro" value={11} icon={Target} color="green" />
+                <Kpi title="Aprobación de diagnósticos" value={11} icon={FileCheck2} color="gold" />
               </div>
 
               {/* Filtros */}
@@ -1070,7 +1026,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                             }
                             className="inline-flex items-center gap-1 rounded bg-[#eaf4f0] px-2.5 py-1 text-xs font-semibold text-pine hover:bg-pine hover:text-white transition"
                           >
-                            <Eye size={13} /> Ver Acta (PPT)
+                            <Eye size={13} /> Ver acta
                           </button>
                         ) : (
                           <Pill tone={statusTone(s.estado)}>{s.estado}</Pill>
@@ -1094,22 +1050,9 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 subtitle="Diagnóstico metodológico causa-efecto de los 12 árboles aprobados formalmente en actas para la modernización del MINAM"
                 action={
                   <div className="flex items-center gap-3">
-                    <Button variant="secondary" onClick={() => saveCsv(arbolesProblemasReal, 'arboles-problemas-minam.csv')}>
+                    <Button variant="secondary" onClick={() => saveCsv(treeCsv(), 'arboles-problemas-minam.csv')}>
                       <Download size={16} /> Exportar Matriz CSV
                     </Button>
-                    {currentTree.imagenUrl && (
-                      <Button
-                        onClick={() =>
-                          setPreviewImage({
-                            url: currentTree.imagenUrl!,
-                            title: "Lámina Oficial: " + currentTree.mesaNombre,
-                            subtitle: "Problema: " + currentTree.problemaCentral,
-                          })
-                        }
-                      >
-                        <Eye size={16} /> Ver Lámina Oficial (PPT)
-                      </Button>
-                    )}
                   </div>
                 }
               />
@@ -1141,108 +1084,16 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                     <span className="text-xs font-bold text-pine uppercase tracking-wider">
                       MESA {currentTree.mesaId} · {currentTree.id}
                     </span>
-                    <h2 className="mt-1 text-lg font-bold text-ink">{currentTree.mesaNombre}</h2>
+                    <h2 className="mt-1 text-lg font-bold text-ink">{officialTree.titulo}</h2>
                     <p className="text-xs text-muted mt-1">
                       Fecha de aprobación en acta: {currentTree.fechaAprobacion} · {currentTree.estado}
                     </p>
                   </div>
-                  {currentTree.imagenUrl && (
-                    <Button
-                      variant="secondary"
-                      onClick={() =>
-                        setPreviewImage({
-                          url: currentTree.imagenUrl!,
-                          title: "Diagrama Oficial Aprobado · Mesa " + currentTree.mesaId,
-                          subtitle: currentTree.mesaNombre,
-                        })
-                      }
-                    >
-                      <Eye size={15} /> Ver Diagrama Oficial (Lámina PPT)
-                    </Button>
-                  )}
+                  <a href={driveFile(treeFiles[currentTree.mesaId === 11 && !currentTree.id.endsWith('A') ? 11 : currentTree.mesaId-1])} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-semibold text-pine"><ExternalLink size={15}/> Ver documento</a>
                 </div>
               </Card>
 
-              {/* VISUALIZADOR METODOLÓGICO DEL ÁRBOL */}
-              <div className="space-y-6">
-                {/* 1. EFECTOS E IMPACTOS NEGATIVOS */}
-                <Card className="p-6 border-t-4 border-t-[#d97706] bg-white">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[#b45309] uppercase tracking-wide">
-                    <AlertTriangle size={18} />
-                    Efectos e Impactos Negativos sobre el Sector, la Ciudadanía y el Ambiente
-                  </div>
-                  <div className="mt-4 grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-[#fde68a] bg-[#fffbeb] p-4">
-                      <p className="text-xs font-bold text-[#92400e] uppercase tracking-wider mb-2">Efectos Directos</p>
-                      <ul className="space-y-2 text-xs text-[#78350f]">
-                        {currentTree.efectosDirectos.map((ef, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="font-bold">•</span>
-                            <span>{ef}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="rounded-lg border border-[#fde68a] bg-[#fffdf5] p-4">
-                      <p className="text-xs font-bold text-[#92400e] uppercase tracking-wider mb-2">Efectos Indirectos</p>
-                      <ul className="space-y-2 text-xs text-[#78350f]">
-                        {currentTree.efectosIndirectos.map((ind, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="font-bold">→</span>
-                            <span>{ind}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
-
-                {/* 2. PROBLEMA CENTRAL */}
-                <div className="relative flex justify-center">
-                  <div className="w-full max-w-4xl rounded-xl border-2 border-red-300 bg-red-50/90 p-6 text-center shadow-soft">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-red-100 px-3.5 py-1 text-xs font-bold text-red-800 uppercase tracking-wider">
-                      <AlertCircle size={15} /> Problema Central Aprobado Formalmente
-                    </span>
-                    <p className="mt-3 text-base font-bold leading-relaxed text-red-950 md:text-lg">
-                      &quot;{currentTree.problemaCentral}&quot;
-                    </p>
-                  </div>
-                </div>
-
-                {/* 3. CAUSAS DIRECTAS E INDIRECTAS */}
-                <Card className="p-6 border-t-4 border-t-pine bg-white">
-                  <div className="flex items-center gap-2 text-xs font-bold text-pine uppercase tracking-wide">
-                    <GitFork size={18} />
-                    Causas Directas e Indirectas Determinadas en el Diagnóstico
-                  </div>
-                  <div className="mt-4 grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-[#cce3dc] bg-[#f4faf7] p-4">
-                      <p className="text-xs font-bold text-[#135443] uppercase tracking-wider mb-2">Causas Directas</p>
-                      <ul className="space-y-2 text-xs text-[#1e584a]">
-                        {currentTree.causasDirectas.map((cd, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="font-bold">•</span>
-                            <span>{cd}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="rounded-lg border border-[#cce3dc] bg-[#fafdff] p-4">
-                      <p className="text-xs font-bold text-[#135443] uppercase tracking-wider mb-2">Causas Indirectas</p>
-                      <ul className="space-y-2 text-xs text-[#1e584a]">
-                        {currentTree.causasIndirectas.map((ci, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="font-bold">→</span>
-                            <span>{ci}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
-              </div>
+              <ProblemTreeView key={officialTree.id} tree={officialTree} />
             </>
           )}
 
@@ -1255,14 +1106,14 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 title="Mesas de Trabajo: Diagnósticos Preliminares"
                 subtitle="Informes oficiales aprobados en actas de sesión para la modernización institucional y nuevo ROF"
                 action={
-                  <Button variant="secondary" onClick={() => saveCsv(mesasReales, 'diagnosticos-minam-oficial.csv')}>
+                  <Button variant="secondary" onClick={() => saveCsv(mesasReales.map(m => ({mesa:m.id,eje:m.nombre,lider:m.lider,cooperante:diagnosisCooperation[m.id-1],problema:diagnosisProblems[m.id-1],fechaAprobacion:diagnosisDates[m.id-1]})), 'diagnosticos-minam-oficial.csv')}>
                     <Download size={16} /> Exportar Matriz CSV
                   </Button>
                 }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <Kpi title="Diagnósticos Preliminares" value="12 concluidos" detail="100% formalizados" icon={FileCheck2} color="green" />
+                <Kpi title="Diagnósticos Preliminares" value="12" detail="Aprobados por las mesas" icon={FileCheck2} color="green" />
                 <Kpi title="Mesas Técnicas" value="11 mesas" detail="SG y Viceministerios" icon={Layers} color="blue" />
                 <Kpi title="Sesiones de Formulación" value="35 sesiones" detail="Ciclo 09 al 15 de octubre" icon={CalendarDays} color="green" />
                 <Kpi title="Acompañamiento Técnico" value="5 cooperantes" detail="BM, BID, UE, GIZ, SERVIR" icon={Handshake} color="gold" />
@@ -1270,22 +1121,26 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
               <Card className="overflow-hidden">
                 <div className="border-b border-border px-6 py-4">
-                  <h2 className="text-sm font-bold text-ink">Registro de Diagnósticos Preliminares Formalizados</h2>
+                  <h2 className="text-sm font-bold text-ink">Registro de diagnósticos preliminares</h2>
+                  <p className="mt-1 text-xs text-muted">Fuente: Informe N.° 000544-2026-SG-OGPP-OPM, cuadro 2.</p>
                 </div>
-                <Table headers={['Mesa', 'Eje Temático', 'Líder MINAM', 'Cooperante', 'Diagnóstico y Estado', 'Acta Oficial']}>
+                <Table headers={['Mesa', 'Eje Temático', 'Líder MINAM', 'Cooperante según informe', 'Problema identificado', 'Aprobación', 'Acta Oficial']}>
                   {mesasReales.map((m) => (
                     <tr key={m.id}>
                       <td className="font-semibold text-pine whitespace-nowrap">Mesa {String(m.id).padStart(2, '0')}</td>
                       <td className="min-w-[260px] font-medium text-xs text-ink">{m.nombre}</td>
                       <td className="min-w-[180px] text-xs text-muted">{m.lider}</td>
                       <td className="whitespace-nowrap">
-                        <span className={cn('rounded border px-2 py-0.5 text-[11px] font-semibold', cooperatorBadgeClass(m.cooperante))}>
-                          {m.cooperante}
+                        <span className="text-sm font-medium text-ink">
+                          {diagnosisCooperation[m.id-1]}
                         </span>
                       </td>
-                      <td className="min-w-[260px] text-xs leading-relaxed text-muted">{m.estadoTrabajo}</td>
+                      <td className="min-w-[260px] text-xs leading-relaxed text-muted">{diagnosisProblems[m.id-1]}</td>
+                      <td className="whitespace-nowrap">{diagnosisDates[m.id-1]}</td>
                       <td className="whitespace-nowrap">
-                        {m.imagenActa ? (
+                        {diagnosisFiles[m.id] ? (
+                          <a href={driveFile(diagnosisFiles[m.id])} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-pine"><ExternalLink size={14}/> Ver acta</a>
+                        ) : m.imagenActa ? (
                           <button
                             type="button"
                             onClick={() =>
@@ -1297,10 +1152,10 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                             }
                             className="inline-flex items-center gap-1 rounded bg-[#eaf4f0] px-2.5 py-1 text-xs font-semibold text-pine hover:bg-pine hover:text-white transition"
                           >
-                            <Eye size={13} /> Ver Acta (PPT)
+                            <Eye size={13} /> Ver acta
                           </button>
                         ) : (
-                          <Pill tone="success">Aprobada</Pill>
+                          <a href={driveFolder(mesaFolders[m.id-1])} target="_blank" rel="noopener noreferrer" className="text-pine underline">Consultar carpeta</a>
                         )}
                       </td>
                     </tr>
@@ -1438,44 +1293,20 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 </div>
               </Card>
 
-              {/* GRID DE PERFILES DE COOPERANTES */}
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {filteredPerfiles.map((p) => (
-                  <Card key={p.id} className="flex flex-col p-6 transition hover:border-pine/50">
-                    <div className="flex items-start justify-between gap-3 border-b border-border pb-3">
-                      <span className={cn('rounded border px-2.5 py-0.5 text-xs font-semibold', cooperatorBadgeClass(p.organismo))}>
-                        {p.organismo}
-                      </span>
-                      <span className="text-[11px] font-semibold text-muted bg-[#f4f7f6] px-2 py-0.5 rounded">
-                        {p.mesasAsignadas}
-                      </span>
-                    </div>
-
-                    <h3 className="mt-3 text-base font-bold text-ink">{p.nombre}</h3>
-                    <p className="text-xs font-semibold text-pine mt-0.5">{p.cargo}</p>
-
-                    <p className="mt-3 text-xs leading-relaxed text-muted">
-                      {p.perfilProfesional}
-                    </p>
-
-                    <div className="mt-auto border-t border-border pt-4 space-y-1.5 text-xs">
-                      {p.correo && (
-                        <div className="flex items-center gap-2 text-muted">
-                          <Mail size={14} className="text-pine shrink-0" />
-                          <a href={"mailto:" + p.correo} className="text-pine hover:underline truncate">
-                            {p.correo}
-                          </a>
-                        </div>
-                      )}
-                      {p.telefono && (
-                        <div className="flex items-center gap-2 text-muted">
-                          <Phone size={14} className="text-pine shrink-0" />
-                          <span>{p.telefono}</span>
-                        </div>
-                      )}
-                    </div>
-                  </Card>
+              <div className="record-list">
+                <div className="record-list-head"><span>Directorio de especialistas</span><span>{filteredPerfiles.length} registros</span></div>
+                {filteredPerfiles.map(p=>(
+                  <details key={p.id} className="record-disclosure">
+                    <summary className="record-strip profile-strip">
+                      <div className="record-icon"><Users size={22}/></div>
+                      <div className="record-main"><h3>{p.nombre}</h3><p className="record-meta">{p.cargo}</p></div>
+                      <div className="record-side"><span className="record-label">Organismo</span><span className="font-medium">{p.organismo}</span><span className="record-meta">{p.mesasAsignadas}</span></div>
+                      <span className="record-action">Ver detalle <ChevronDown size={16}/></span>
+                    </summary>
+                    <div className="record-expanded"><p className="text-sm leading-relaxed">{p.perfilProfesional}</p><div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">{p.correo&&<a className="inline-flex items-center gap-2 text-pine underline" href={'mailto:'+p.correo}><Mail size={15}/>{p.correo}</a>}{p.telefono&&<span className="inline-flex items-center gap-2"><Phone size={15}/>{p.telefono}</span>}</div></div>
+                  </details>
                 ))}
+                {filteredPerfiles.length===0&&<Empty/>}
               </div>
             </>
           )}
@@ -1583,37 +1414,20 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 <Kpi title="Período de Realización" value="17 - 24 Nov" detail="Semana de consulta ciudadana" icon={CalendarDays} color="gold" />
               </div>
 
-              {/* GRID DE ESPACIOS DE DIÁLOGO */}
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {filteredEspacios.map((e) => (
-                  <Card key={e.id} className="flex flex-col p-6 transition hover:border-pine/50">
-                    <div className="flex items-start justify-between gap-2 border-b border-border pb-3">
-                      <span className="rounded bg-[#ecf5f2] px-2.5 py-0.5 text-xs font-semibold text-pine">
-                        {e.id} · {e.modalidad}
-                      </span>
-                      <Pill tone="success">{e.estado}</Pill>
-                    </div>
-
-                    <h3 className="mt-3 text-base font-bold text-ink leading-snug">{e.grupoActor}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-muted">{e.objetivo}</p>
-
-                    <div className="my-4 rounded-lg border border-[#e1ece9] bg-[#f8faf9] p-3 text-xs leading-relaxed text-[#355359]">
-                      <span className="font-semibold text-pine block mb-1">Entidades y Participantes:</span>
-                      {e.participantesEstimados}
-                    </div>
-
-                    <div className="mt-auto border-t border-border pt-4">
-                      <div className="flex items-center justify-between text-xs text-muted">
-                        <span>Fecha de Sesión:</span>
-                        <span className="font-bold text-pine">{e.fecha}</span>
-                      </div>
-                      <div className="mt-1.5 flex items-center justify-between text-xs text-muted">
-                        <span>Facilitación:</span>
-                        <span className="font-medium text-ink">{e.facilitacion}</span>
-                      </div>
-                    </div>
-                  </Card>
+              <div className="record-list">
+                <div className="record-list-head"><span>Agenda de encuentros</span><span>{filteredEspacios.length} registros</span></div>
+                {filteredEspacios.map(e=>(
+                  <details key={e.id} className="record-disclosure">
+                    <summary className="record-strip dialogue-strip">
+                      <div className="record-date"><CalendarDays size={19}/><strong>{e.fecha}</strong><span>{e.modalidad}</span></div>
+                      <div className="record-main"><h3>{e.grupoActor}</h3><p className="record-summary">{e.objetivo}</p></div>
+                      <div className="record-side"><Pill tone={statusTone(e.estado)}>{e.estado}</Pill><span className="record-label mt-2">Facilitación</span><span>{e.facilitacion}</span></div>
+                      <span className="record-action">Ver detalle <ChevronDown size={16}/></span>
+                    </summary>
+                    <div className="record-expanded"><p className="record-label mb-1">Entidades y participantes</p><p className="text-sm leading-relaxed">{e.participantesEstimados}</p><p className="mt-3 record-label">Objetivo</p><p className="text-sm leading-relaxed">{e.objetivo}</p></div>
+                  </details>
                 ))}
+                {filteredEspacios.length===0&&<Empty/>}
               </div>
             </>
           )}
@@ -1646,7 +1460,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                   <form
                     onSubmit={(e: FormEvent) => {
                       e.preventDefault();
-                      setFormSaved(true);
+                      setFormSaved(false);
                     }}
                     className="space-y-5"
                   >
@@ -1699,8 +1513,8 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                           Cancelar
                         </Button>
                       </Link>
-                      <Button type="submit">
-                        <FilePenLine size={16} /> Guardar Registro Oficial
+                      <Button type="submit" disabled>
+                        <FilePenLine size={16} /> Registro no habilitado
                       </Button>
                     </div>
                   </form>
@@ -1758,10 +1572,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
             {/* Modal footer */}
             <div className="flex items-center justify-between border-t border-border px-6 py-3 bg-white text-xs text-muted">
-              <span>Documento fuente: Presentación IDP_vf1.pptx · Instancia Directiva del Proceso MINAM</span>
-              <Button variant="secondary" onClick={() => setPreviewImage(null)}>
-                Cerrar
-              </Button>
+              <span>Fuente: Presentación de la Instancia Directiva del Proceso MINAM</span>
             </div>
           </div>
         </div>
