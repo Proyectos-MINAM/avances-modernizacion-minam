@@ -1,0 +1,61 @@
+// Esquema objetivo para la fase de conexión PostgreSQL.
+// La presente versión funciona sin servidor de datos y guarda cambios localmente.
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model Mesa {
+  id Int @id
+  eje String
+  nombre String
+  organo String
+  lider String
+  productos Producto[]
+  acuerdos Acuerdo[]
+}
+model Producto {
+  id String @id
+  mesaId Int
+  mesa Mesa @relation(fields:[mesaId],references:[id])
+  nombre String
+  tipo String
+  instrumento String
+  fechaPrevista DateTime?
+  avances Avance[]
+}
+model Avance {
+  id String @id @default(cuid())
+  productoId String
+  producto Producto @relation(fields:[productoId],references:[id])
+  porcentaje Float
+  estado String
+  comentario String? @db.Text
+  responsable String
+  creadoEn DateTime @default(now())
+  @@index([productoId,creadoEn])
+}
+model Acuerdo {
+  id String @id
+  mesaId Int
+  mesa Mesa @relation(fields:[mesaId],references:[id])
+  descripcion String @db.Text
+  responsable String
+  organo String
+  estado String
+  fechaLimite DateTime?
+  evidencia String?
+}
+model Usuario {
+  id String @id @default(cuid())
+  correo String @unique
+  nombre String
+  rol String
+  activo Boolean @default(true)
+}
+model Auditoria {
+  id String @id @default(cuid())
+  usuarioId String
+  entidad String
+  registroId String
+  antes Json?
+  despues Json
+  fecha DateTime @default(now())
+}

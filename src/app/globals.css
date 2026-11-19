@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+button,
+select,
+input,
+textarea {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f5f8f8;
+  color: #213b42;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+select,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8e2e2;
+  border-radius: 8px;
+}
+
+.scroll-table {
+  overflow-x: auto;
+}
+
+.scroll-table table {
+  width: 100%;
+  min-width: 760px;
+}
+
+.scroll-table th {
+  padding: 13px 16px;
+  text-align: left;
+  color: #637983;
+  background: #f8fafa;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.scroll-table td {
+  padding: 13px 16px;
+  border-top: 1px solid #eef2f1;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.scroll-table tbody tr:hover {
+  background: #fafdfc;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #213b42;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #213b42;
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.6;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

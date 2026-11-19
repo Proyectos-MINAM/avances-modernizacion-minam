@@ -1,0 +1,2200 @@
+{
+  "mesas": [
+    {
+      "id": 1,
+      "eje": "Eje 1",
+      "nombre": "Gobernanza ambiental, marcos normativos, sistemas funcionales y descentralización",
+      "organo": "SG",
+      "lider": "Fernández Neciosup José Ítalo",
+      "productos": 8
+    },
+    {
+      "id": 2,
+      "eje": "Eje 2",
+      "nombre": "Servicios al ciudadano y simplificación administrativa",
+      "organo": "SG",
+      "lider": "Espinoza Salvatierra Jerry",
+      "productos": 4
+    },
+    {
+      "id": 3,
+      "eje": "Eje 3",
+      "nombre": "Ciencia, información ambiental y gestión del riesgo",
+      "organo": "VMDERN",
+      "lider": "Santiesteban Pérez César Ricardo",
+      "productos": 7
+    },
+    {
+      "id": 4,
+      "eje": "Eje 4",
+      "nombre": "Cierre de brechas sectoriales",
+      "organo": "VMDERN",
+      "lider": "García Torreblanca Elvis Stevens",
+      "productos": 3
+    },
+    {
+      "id": 5,
+      "eje": "Eje 5",
+      "nombre": "Gestión integrada de programas, proyectos e intervenciones",
+      "organo": "SG",
+      "lider": "Fernández Neciosup José Ítalo",
+      "productos": 3
+    },
+    {
+      "id": 6,
+      "eje": "Eje 6",
+      "nombre": "Modernización de tecnologías de información",
+      "organo": "SG",
+      "lider": "Peña Cardoza Ana",
+      "productos": 4
+    },
+    {
+      "id": 7,
+      "eje": "Eje 7",
+      "nombre": "Optimización del proceso de certificación ambiental",
+      "organo": "VMGA",
+      "lider": "Soto Torres Raquel Hilianova",
+      "productos": 4
+    },
+    {
+      "id": 8,
+      "eje": "Eje 8",
+      "nombre": "Optimización presupuestal y financiera",
+      "organo": "SG",
+      "lider": "Fernández Neciosup José Ítalo",
+      "productos": 3
+    },
+    {
+      "id": 9,
+      "eje": "Eje 9",
+      "nombre": "Trabajo articulado contra economías ilegales",
+      "organo": "VMDERN",
+      "lider": "Sáenz Rabanal Jorge Luis",
+      "productos": 4
+    },
+    {
+      "id": 10,
+      "eje": "Eje 10",
+      "nombre": "Optimización de la fiscalización ambiental",
+      "organo": "VMGA",
+      "lider": "Oblitas Méndez de Díaz Jessica Violeta",
+      "productos": 4
+    },
+    {
+      "id": 11,
+      "eje": "Eje 11",
+      "nombre": "Recursos humanos e integridad pública",
+      "organo": "SG",
+      "lider": "Salardi Bramont Carmen",
+      "productos": 3
+    }
+  ],
+  "productos": [
+    {
+      "id": "M01-P01",
+      "mesa": 1,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P02",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación del D.Leg. 1013 (MINAM, OEFA, SERNANP y articulación de IPI)",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P03",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley 29968, Ley de creación del SENACE",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P04",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley 28611, Ley General del Ambiente",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P05",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley 28245, Ley Marco del SNGA (SINIA)",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P06",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley 29325, Ley del SINEFA",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P07",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley del SINANPE",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M01-P08",
+      "mesa": 1,
+      "nombre": "Propuesta de modificación de la Ley 27446, Ley del SEIA",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M02-P01",
+      "mesa": 2,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M02-P02",
+      "mesa": 2,
+      "nombre": "Inventario de servicios misionales del Sector Ambiental: catálogo de servicios",
+      "tipo": "Medida de reforma",
+      "instrumento": "Inventario/catálogo",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M02-P03",
+      "mesa": 2,
+      "nombre": "Identificación de servicios que pueden integrarse en Ventanilla Única",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estudio técnico",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M02-P04",
+      "mesa": 2,
+      "nombre": "Propuesta de mejora de servicios a nivel sectorial",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P01",
+      "mesa": 3,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P02",
+      "mesa": 3,
+      "nombre": "Propuesta de modificación de la Ley 31733 o nueva Ley del IGP",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P03",
+      "mesa": 3,
+      "nombre": "Propuesta de modificación de la Ley 30286 o nueva Ley del INAIGEM",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P04",
+      "mesa": 3,
+      "nombre": "Propuesta de modificación de la Ley 24031 o nueva Ley del SENAMHI",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P05",
+      "mesa": 3,
+      "nombre": "Propuesta de modificación de la Ley 23374 o nueva Ley del IIAP",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P06",
+      "mesa": 3,
+      "nombre": "Propuesta de estrategia de articulación de los servicios de las IPI",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M03-P07",
+      "mesa": 3,
+      "nombre": "Modificación de la agenda de investigación ambiental",
+      "tipo": "Medida de reforma",
+      "instrumento": "Resolución ministerial",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M04-P01",
+      "mesa": 4,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M04-P02",
+      "mesa": 4,
+      "nombre": "Identificación de brechas por componentes ambientales",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estudio técnico",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M04-P03",
+      "mesa": 4,
+      "nombre": "Propuesta de estrategia de cierre de brechas",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M05-P01",
+      "mesa": 5,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M05-P02",
+      "mesa": 5,
+      "nombre": "Propuesta de creación del Programa Nacional de Gestión Integral de Residuos Sólidos (LOPE)",
+      "tipo": "Medida de reforma",
+      "instrumento": "Decreto supremo",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M05-P03",
+      "mesa": 5,
+      "nombre": "Propuesta estratégica de reorganización y/o fusión por absorción",
+      "tipo": "Medida de reforma",
+      "instrumento": "Decreto supremo",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M06-P01",
+      "mesa": 6,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M06-P02",
+      "mesa": 6,
+      "nombre": "Inventario de activos tecnológicos",
+      "tipo": "Medida de reforma",
+      "instrumento": "Inventario/catálogo",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M06-P03",
+      "mesa": 6,
+      "nombre": "Modelo de interoperabilidad y catálogo de servicios digitales",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estudio técnico",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M06-P04",
+      "mesa": 6,
+      "nombre": "Propuesta de estrategia de ciberseguridad y protección de datos",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M07-P01",
+      "mesa": 7,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M07-P02",
+      "mesa": 7,
+      "nombre": "Mapeo de procesos (AS-IS) e identificación de cuellos de botella",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estudio técnico",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M07-P03",
+      "mesa": 7,
+      "nombre": "Propuesta de rediseño y optimización de procesos (TO-BE)",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M07-P04",
+      "mesa": 7,
+      "nombre": "Propuesta de modificación de la Ley 27446 (SEIA), su reglamento y normas internas del SENACE",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M08-P01",
+      "mesa": 8,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M08-P02",
+      "mesa": 8,
+      "nombre": "Propuesta de estrategia de reorientación presupuestal",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M08-P03",
+      "mesa": 8,
+      "nombre": "Propuesta de estrategia de gestión de recursos de cooperación internacional",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M09-P01",
+      "mesa": 9,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M09-P02",
+      "mesa": 9,
+      "nombre": "Propuesta de estrategias de intervención y protocolos de articulación interinstitucional",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M09-P03",
+      "mesa": 9,
+      "nombre": "Propuesta de reformas normativas relacionadas",
+      "tipo": "Medida de reforma",
+      "instrumento": "Por definir",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M09-P04",
+      "mesa": 9,
+      "nombre": "Propuesta de reubicación de la UNIDA en el Despacho Ministerial",
+      "tipo": "Medida de reforma",
+      "instrumento": "Decreto supremo",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M10-P01",
+      "mesa": 10,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M10-P02",
+      "mesa": 10,
+      "nombre": "Identificación de limitaciones y diagnóstico del modelo sancionador; inicio del PAS por riesgo",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estudio técnico",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M10-P03",
+      "mesa": 10,
+      "nombre": "Propuesta de mejora de la supervisión de las EFA con enfoque en economías ilegales",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M10-P04",
+      "mesa": 10,
+      "nombre": "Propuesta de modificación de la Ley 29325 (SINEFA) y de los reglamentos de supervisión y fiscalización del OEFA",
+      "tipo": "Medida de reforma",
+      "instrumento": "Ley",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M11-P01",
+      "mesa": 11,
+      "nombre": "Diagnóstico: problema identificado, causas y efectos (árbol de problemas)",
+      "tipo": "Diagnóstico",
+      "instrumento": "Documento de diagnóstico",
+      "fecha": "2026-11-17",
+      "peso": 1.0
+    },
+    {
+      "id": "M11-P02",
+      "mesa": 11,
+      "nombre": "Propuesta de medidas en materia de recursos humanos sectorial",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    },
+    {
+      "id": "M11-P03",
+      "mesa": 11,
+      "nombre": "Propuesta de medidas en materia de integridad sectorial",
+      "tipo": "Medida de reforma",
+      "instrumento": "Estrategia/propuesta",
+      "fecha": "2026-12-26",
+      "peso": 1.0
+    }
+  ],
+  "avances": [
+    {
+      "producto": "M01-P01",
+      "mesa": 1,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas firmado el 15/10 según ESTADO ÁRBOL; acta no ubicada en la carpeta. Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P02",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P03",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P04",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P05",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P06",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P07",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M01-P08",
+      "mesa": 1,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M02-P01",
+      "mesa": 2,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 14/10 (ACTA N° 003-2026-MyR-MINAM-MT-2). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M02-P02",
+      "mesa": 2,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M02-P03",
+      "mesa": 2,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M02-P04",
+      "mesa": 2,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P01",
+      "mesa": 3,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 16/10 (ACTA N° 004-2026-MyR-MINAM-MT-3). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P02",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P03",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P04",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P05",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P06",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M03-P07",
+      "mesa": 3,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M04-P01",
+      "mesa": 4,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 13/10 (ACTA N° 003-2026-MyR-MINAM-MT-4). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M04-P02",
+      "mesa": 4,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M04-P03",
+      "mesa": 4,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M05-P01",
+      "mesa": 5,
+      "avance": 25.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas en versión del 16/10 (15:15) sin acta de aprobación ubicada.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M05-P02",
+      "mesa": 5,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M05-P03",
+      "mesa": 5,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M06-P01",
+      "mesa": 6,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 14/10 (ACTA N° 003-2026-MyR-MINAM-MT-6). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M06-P02",
+      "mesa": 6,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M06-P03",
+      "mesa": 6,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M06-P04",
+      "mesa": 6,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M07-P01",
+      "mesa": 7,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 16/10 (ACTA N° 003-2026-MyR-MINAM-MT-7). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M07-P02",
+      "mesa": 7,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M07-P03",
+      "mesa": 7,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M07-P04",
+      "mesa": 7,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M08-P01",
+      "mesa": 8,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 14/10 (ACTA N° 003-2026-MyR-MINAM-MT-8). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M08-P02",
+      "mesa": 8,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M08-P03",
+      "mesa": 8,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M09-P01",
+      "mesa": 9,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 15/10 (ACTA N° 003-2026-MyR-MINAM-MT-9). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M09-P02",
+      "mesa": 9,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M09-P03",
+      "mesa": 9,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M09-P04",
+      "mesa": 9,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M10-P01",
+      "mesa": 10,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Árbol de problemas aprobado por consenso el 16/10 (ACTA N° 003-2026-MyR-MINAM-MT-10). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M10-P02",
+      "mesa": 10,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M10-P03",
+      "mesa": 10,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M10-P04",
+      "mesa": 10,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M11-P01",
+      "mesa": 11,
+      "avance": 30.0,
+      "estado": "En elaboración",
+      "semaforo": "Verde",
+      "comentario": "Dos árboles aprobados: RRHH (13/10, Acta 003) e integridad pública (16/10, Acta 004). Sigue el diagnóstico (30/10).",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M11-P02",
+      "mesa": 11,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    },
+    {
+      "producto": "M11-P03",
+      "mesa": 11,
+      "avance": 0.0,
+      "estado": "No iniciado",
+      "semaforo": "Ámbar",
+      "comentario": "Medida de reforma: según cronograma, las alternativas se presentan a la IDP hasta el 11/12.",
+      "fecha": "2026-10-16"
+    }
+  ],
+  "acuerdos": [
+    {
+      "id": "A001",
+      "mesa": 1,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-1"
+    },
+    {
+      "id": "A002",
+      "mesa": 1,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ESTADO ÁRBOL: firmado 15/10/2026"
+    },
+    {
+      "id": "A003",
+      "mesa": 1,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A004",
+      "mesa": 1,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-09",
+      "evidencia": "Insumos revisados en la sesión S013"
+    },
+    {
+      "id": "A005",
+      "mesa": 2,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-2"
+    },
+    {
+      "id": "A006",
+      "mesa": 2,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-2 (Word sin firmas)"
+    },
+    {
+      "id": "A007",
+      "mesa": 2,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A008",
+      "mesa": 2,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-13",
+      "evidencia": "Insumos revisados en la sesión S014"
+    },
+    {
+      "id": "A009",
+      "mesa": 3,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-3"
+    },
+    {
+      "id": "A010",
+      "mesa": 3,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-3 (Word sin firmas; archivo ACTA_003_MT-3)"
+    },
+    {
+      "id": "A011",
+      "mesa": 3,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A012",
+      "mesa": 3,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-12",
+      "evidencia": "Insumos revisados en la sesión S016"
+    },
+    {
+      "id": "A013",
+      "mesa": 4,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-4"
+    },
+    {
+      "id": "A014",
+      "mesa": 4,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-4"
+    },
+    {
+      "id": "A015",
+      "mesa": 4,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A016",
+      "mesa": 4,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-09",
+      "evidencia": "Insumos revisados en la sesión S019"
+    },
+    {
+      "id": "A017",
+      "mesa": 5,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-5"
+    },
+    {
+      "id": "A018",
+      "mesa": 5,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "En curso",
+      "plazo": "En plazo",
+      "fecha": "2026-10-16",
+      "evidencia": ""
+    },
+    {
+      "id": "A019",
+      "mesa": 5,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A020",
+      "mesa": 5,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-09",
+      "evidencia": "Insumos revisados en la sesión S021"
+    },
+    {
+      "id": "A021",
+      "mesa": 6,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-6"
+    },
+    {
+      "id": "A022",
+      "mesa": 6,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-6 (Word sin firmas)"
+    },
+    {
+      "id": "A023",
+      "mesa": 6,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A024",
+      "mesa": 6,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-12",
+      "evidencia": "Insumos revisados en la sesión S022"
+    },
+    {
+      "id": "A025",
+      "mesa": 7,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-7"
+    },
+    {
+      "id": "A026",
+      "mesa": 7,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-7 (Word, versión 17/10)"
+    },
+    {
+      "id": "A027",
+      "mesa": 7,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A028",
+      "mesa": 7,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-12",
+      "evidencia": "Insumos revisados en la sesión S024"
+    },
+    {
+      "id": "A029",
+      "mesa": 8,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-8"
+    },
+    {
+      "id": "A030",
+      "mesa": 8,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-8 (Word sin firmas)"
+    },
+    {
+      "id": "A031",
+      "mesa": 8,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A032",
+      "mesa": 8,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-09",
+      "evidencia": "Insumos revisados en la sesión S026"
+    },
+    {
+      "id": "A033",
+      "mesa": 9,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-9"
+    },
+    {
+      "id": "A034",
+      "mesa": 9,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-9"
+    },
+    {
+      "id": "A035",
+      "mesa": 9,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A036",
+      "mesa": 9,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-13",
+      "evidencia": "Insumos revisados en la sesión S028"
+    },
+    {
+      "id": "A037",
+      "mesa": 10,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-10"
+    },
+    {
+      "id": "A038",
+      "mesa": 10,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-10 (Word sin firmas)"
+    },
+    {
+      "id": "A039",
+      "mesa": 10,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A040",
+      "mesa": 10,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-12",
+      "evidencia": "Insumos revisados en la sesión S030"
+    },
+    {
+      "id": "A041",
+      "mesa": 11,
+      "texto": "Utilizar la metodología y los formatos del Documento Orientador de la OPM-OGPP para el diagnóstico y las propuestas de reforma",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-07",
+      "evidencia": "ACTA N° 001-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A042",
+      "mesa": 11,
+      "texto": "Elaborar el árbol de problemas (problema central, causas y efectos) hasta el 16/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A043",
+      "mesa": 11,
+      "texto": "Elaborar el diagnóstico de la temática de la mesa hasta el 30/10/2026",
+      "responsable": "Líder e integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-30",
+      "evidencia": ""
+    },
+    {
+      "id": "A044",
+      "mesa": 11,
+      "texto": "Revisar y preparar la documentación disponible en cada unidad (diagnósticos previos, problemática, propuestas) para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-12",
+      "evidencia": "Insumos revisados en la sesión S032"
+    },
+    {
+      "id": "A045",
+      "mesa": 1,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ESTADO ÁRBOL: firmado 15/10/2026"
+    },
+    {
+      "id": "A046",
+      "mesa": 2,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-2 (Word sin firmas)"
+    },
+    {
+      "id": "A047",
+      "mesa": 3,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-3 (Word sin firmas; archivo ACTA_003_MT-3)"
+    },
+    {
+      "id": "A048",
+      "mesa": 4,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-4"
+    },
+    {
+      "id": "A049",
+      "mesa": 5,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "En curso",
+      "plazo": "En plazo",
+      "fecha": "2026-10-16",
+      "evidencia": ""
+    },
+    {
+      "id": "A050",
+      "mesa": 6,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-6 (Word sin firmas)"
+    },
+    {
+      "id": "A051",
+      "mesa": 7,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-7 (Word, versión 17/10)"
+    },
+    {
+      "id": "A052",
+      "mesa": 8,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-8 (Word sin firmas)"
+    },
+    {
+      "id": "A053",
+      "mesa": 9,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-9"
+    },
+    {
+      "id": "A054",
+      "mesa": 10,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-10 (Word sin firmas)"
+    },
+    {
+      "id": "A055",
+      "mesa": 11,
+      "texto": "Revisar y complementar los aportes con información y evidencia que sustenten las situaciones identificadas, para la siguiente reunión",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A056",
+      "mesa": 2,
+      "texto": "Invitar a la Subsecretaría de Calidad Regulatoria y Simplificación Administrativa (SGP-PCM) para orientación y asistencia técnica a la mesa",
+      "responsable": "Líder de la Mesa 2",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A057",
+      "mesa": 2,
+      "texto": "Invitar a la Secretaría Técnica de la Comisión de Eliminación de Barreras Burocráticas del INDECOPI para orientación y asistencia técnica",
+      "responsable": "Líder de la Mesa 2",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A058",
+      "mesa": 2,
+      "texto": "Incluir en el drive de la mesa el Catálogo de Servicios, los procedimientos y el TUPA",
+      "responsable": "Integrantes de la Mesa 2",
+      "organo": "OPM",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A059",
+      "mesa": 2,
+      "texto": "Incorporar al Oficial de Calidad Regulatoria del MINAM como soporte técnico de la mesa",
+      "responsable": "Líder de la Mesa 2",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A060",
+      "mesa": 2,
+      "texto": "Los representantes pueden invitar a especialistas de los organismos adscritos u otras dependencias para el diagnóstico",
+      "responsable": "Integrantes de la Mesa 2",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-13",
+      "evidencia": "ACTA N° 002-2026-MyR-MINAM-MT-2"
+    },
+    {
+      "id": "A061",
+      "mesa": 6,
+      "texto": "Tomar como base del árbol el informe del proyecto de inversión CUI 2693849 de la OGTI",
+      "responsable": "OGTI",
+      "organo": "OGTI",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-14",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-6"
+    },
+    {
+      "id": "A062",
+      "mesa": 6,
+      "texto": "Reunión con todos los jefes de TI del Sector Ambiental (pedido del sindicato del OEFA), miércoles 14/10 a las 17:30 en la sala coworking del MINAM",
+      "responsable": "Líder de la Mesa 6",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Vencido",
+      "fecha": "2026-10-14",
+      "evidencia": ""
+    },
+    {
+      "id": "A063",
+      "mesa": 7,
+      "texto": "Convocar a las autoridades ambientales competentes de otros sectores; la DGPIGA alcanzará una propuesta para la siguiente reunión",
+      "responsable": "DGPIGA",
+      "organo": "DGPIGA",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-16",
+      "evidencia": ""
+    },
+    {
+      "id": "A064",
+      "mesa": 9,
+      "texto": "Invitar al OEFA para que socialice sus acciones y compartir la información sobre la materia en el drive",
+      "responsable": "Líder de la Mesa 9",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A065",
+      "mesa": 11,
+      "texto": "Formular dos árboles de problemas: gestión de recursos humanos e integridad pública",
+      "responsable": "Integrantes de la Mesa 11",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A066",
+      "mesa": 11,
+      "texto": "Registrar en el drive de la mesa la propuesta de árbol de integridad hasta el 14/10 para recibir aportes",
+      "responsable": "Representante OII",
+      "organo": "OII",
+      "estado": "Cumplido",
+      "plazo": "Cumplido con retraso",
+      "fecha": "2026-10-14",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A067",
+      "mesa": 4,
+      "texto": "Entregar a la OPM-OGPP la versión final del árbol de problemas debidamente suscrita",
+      "responsable": "Líder de la Mesa 4",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "En plazo",
+      "fecha": "2026-10-16",
+      "evidencia": ""
+    },
+    {
+      "id": "A068",
+      "mesa": 2,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-14",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-2"
+    },
+    {
+      "id": "A069",
+      "mesa": 2,
+      "texto": "El líder coordinará la siguiente reunión para formular los siguientes productos (diagnóstico)",
+      "responsable": "Líder de la Mesa 2",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A070",
+      "mesa": 3,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-3"
+    },
+    {
+      "id": "A071",
+      "mesa": 4,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-13",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-4"
+    },
+    {
+      "id": "A072",
+      "mesa": 6,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-14",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-6"
+    },
+    {
+      "id": "A073",
+      "mesa": 6,
+      "texto": "El líder coordinará la siguiente reunión para formular los siguientes productos (diagnóstico)",
+      "responsable": "Líder de la Mesa 6",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A074",
+      "mesa": 7,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-7"
+    },
+    {
+      "id": "A075",
+      "mesa": 8,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-14",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-8"
+    },
+    {
+      "id": "A076",
+      "mesa": 8,
+      "texto": "El líder coordinará la siguiente reunión para formular los siguientes productos (diagnóstico)",
+      "responsable": "Líder de la Mesa 8",
+      "organo": "SG",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A077",
+      "mesa": 9,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMDERN",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-15",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-9"
+    },
+    {
+      "id": "A078",
+      "mesa": 9,
+      "texto": "El líder coordinará la siguiente reunión para formular los siguientes productos (diagnóstico)",
+      "responsable": "Líder de la Mesa 9",
+      "organo": "VMDERN",
+      "estado": "Pendiente",
+      "plazo": "Sin fecha límite",
+      "fecha": "",
+      "evidencia": ""
+    },
+    {
+      "id": "A079",
+      "mesa": 10,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas",
+      "responsable": "Integrantes de la mesa",
+      "organo": "VMGA",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-10"
+    },
+    {
+      "id": "A080",
+      "mesa": 11,
+      "texto": "Aprobar por consenso la versión final del árbol de problemas de integridad pública",
+      "responsable": "Integrantes de la mesa",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-16",
+      "evidencia": "ACTA N° 004-2026-MyR-MINAM-MT-11"
+    },
+    {
+      "id": "A081",
+      "mesa": 11,
+      "texto": "Aprobar la versión final del árbol de problemas de gestión de recursos humanos",
+      "responsable": "Integrantes de la Mesa 11",
+      "organo": "SG",
+      "estado": "Cumplido",
+      "plazo": "Cumplido a tiempo",
+      "fecha": "2026-10-13",
+      "evidencia": "ACTA N° 003-2026-MyR-MINAM-MT-11"
+    }
+  ],
+  "propuestas": [
+    {
+      "id": "PR-M01-001",
+      "mesa": 1,
+      "titulo": "Árbol de problemas: limitada capacidad del sector ambiental para conducir la gestión ambiental en los tres niveles de gobierno de manera planificada, preventiva, articulada, predecible y orientada a resultados",
+      "estado": "Aprobada en mesa",
+      "consenso": 0,
+      "enlace": "https://drive.google.com/file/d/1ziDp5TlHEkiBFJGmGokg655W4bw1ZKQt/view"
+    },
+    {
+      "id": "PR-M02-001",
+      "mesa": 2,
+      "titulo": "Árbol de problemas: deficiencias en la prestación y simplificación de los servicios públicos del Sector Ambiental",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/19C0XI4FsekIG4isbtOANwyFZ-8POfOL8/view"
+    },
+    {
+      "id": "PR-M03-001",
+      "mesa": 3,
+      "titulo": "Árbol de problemas: limitada articulación y aprovechamiento de las capacidades técnico-científicas, tecnológicas y de información del Sector Ambiental para las políticas públicas y la toma de decisiones en gestión ambiental y GRD",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1Yeczl6eybq2Y9AgAUYlldNcyl8401tCR/view"
+    },
+    {
+      "id": "PR-M04-001",
+      "mesa": 4,
+      "titulo": "Árbol de problemas: débil asociación entre los servicios vinculados a las brechas del sector Ambiente y los beneficios a la población",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1qpG41he_suDwW1Ovehiz3oYd3BbL9oCf/view"
+    },
+    {
+      "id": "PR-M05-001",
+      "mesa": 5,
+      "titulo": "Árbol de problemas: débil manejo de las intervenciones del MINAM (GICA, Programa Bosques y Proyecto Especial Papa León)",
+      "estado": "Aprobada en mesa",
+      "consenso": 0,
+      "enlace": "https://drive.google.com/file/d/13EW37DWH1A-tk8hGMc5DIDySYqvHjCUa/view"
+    },
+    {
+      "id": "PR-M06-001",
+      "mesa": 6,
+      "titulo": "Árbol de problemas: servicio de información para la gestión ambiental fragmentado, no interoperable, de acceso limitado, inseguro y de escasa utilidad para la toma de decisiones (SNGA)",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1G8pPB-zOQsRLmf0RxUwxWzDZx1TxiR0n/view"
+    },
+    {
+      "id": "PR-M07-001",
+      "mesa": 7,
+      "titulo": "Árbol de problemas: limitada predictibilidad, calidad y oportunidad en el proceso de certificación ambiental",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1Q1tzP4XVTZ6NLWHGqsFF78uJGfyMr1bw/view"
+    },
+    {
+      "id": "PR-M08-001",
+      "mesa": 8,
+      "titulo": "Árbol de problemas: limitada disponibilidad y eficiencia en el uso de recursos del sector ambiente",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1yoZ_r2MjOeywT9FGGx1GUPcnVO3h54qi/view"
+    },
+    {
+      "id": "PR-M09-001",
+      "mesa": 9,
+      "titulo": "Árbol de problemas: limitado abordaje interinstitucional para prevenir y afrontar las economías ilícitas en las ANP y otros ecosistemas",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1kjTcjw4amsTII06PdcWrkOQxPKWUlHKg/view"
+    },
+    {
+      "id": "PR-M10-001",
+      "mesa": 10,
+      "titulo": "Árbol de problemas: brechas en las capacidades del OEFA, como fiscalizador directo y ente rector del SINEFA, para prevenir los incumplimientos de mayor riesgo y lograr el cumplimiento regulatorio",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1ykl_8L05MaUJ3bHIvrV0pyC4a6fAnLNX/view"
+    },
+    {
+      "id": "PR-M11-001",
+      "mesa": 11,
+      "titulo": "Árbol de problemas de gestión de recursos humanos del MINAM y sus organismos adscritos",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1kQ4vaIFNcDpJJ4GMx8c57ExSZmiDu9bC/view"
+    },
+    {
+      "id": "PR-M11-002",
+      "mesa": 11,
+      "titulo": "Árbol de problemas de integridad pública: limitada efectividad y sostenibilidad de la implementación del Modelo de Integridad en las entidades del Sector Ambiental",
+      "estado": "Aprobada en mesa",
+      "consenso": 100,
+      "enlace": "https://drive.google.com/file/d/1m2H7I21iSrJvlpvaJzyhjqUCJvJk4duE/view"
+    }
+  ],
+  "sesiones": [
+    {
+      "id": "S002",
+      "mesa": 1,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S003",
+      "mesa": 2,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S004",
+      "mesa": 3,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S005",
+      "mesa": 4,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S006",
+      "mesa": 5,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S007",
+      "mesa": 6,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S008",
+      "mesa": 7,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S009",
+      "mesa": 8,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S010",
+      "mesa": 9,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S011",
+      "mesa": 10,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S012",
+      "mesa": 11,
+      "tema": "Instalación de la mesa; metodología, productos y cronograma",
+      "fecha": "2026-10-07",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S013",
+      "mesa": 1,
+      "tema": "Árbol de problemas: lluvia de ideas, problema central preliminar, causas y efectos",
+      "fecha": "2026-10-09",
+      "acta": true,
+      "asistentes": "7"
+    },
+    {
+      "id": "S014",
+      "mesa": 2,
+      "tema": "Árbol de problemas: lluvia de ideas; acuerdos de asistencia técnica (PCM, INDECOPI)",
+      "fecha": "2026-10-13",
+      "acta": true,
+      "asistentes": "7"
+    },
+    {
+      "id": "S015",
+      "mesa": 2,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-14",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S016",
+      "mesa": 3,
+      "tema": "Árbol de problemas: lluvia de ideas (IIAP participó virtual)",
+      "fecha": "2026-10-12",
+      "acta": true,
+      "asistentes": "5"
+    },
+    {
+      "id": "S017",
+      "mesa": 3,
+      "tema": "Validación del problema central y consolidación de causas y efectos",
+      "fecha": "2026-10-14",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S018",
+      "mesa": 3,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-16",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S019",
+      "mesa": 4,
+      "tema": "Árbol de problemas: lluvia de ideas (invitados OPPMI y DGEFA)",
+      "fecha": "2026-10-09",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S020",
+      "mesa": 4,
+      "tema": "Consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-13",
+      "acta": true,
+      "asistentes": "4"
+    },
+    {
+      "id": "S021",
+      "mesa": 5,
+      "tema": "Árbol de problemas: lluvia de ideas",
+      "fecha": "2026-10-09",
+      "acta": true,
+      "asistentes": "3"
+    },
+    {
+      "id": "S022",
+      "mesa": 6,
+      "tema": "Árbol de problemas: lluvia de ideas sobre la base del PI CUI 2693849",
+      "fecha": "2026-10-12",
+      "acta": true,
+      "asistentes": "4"
+    },
+    {
+      "id": "S023",
+      "mesa": 6,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-14",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S024",
+      "mesa": 7,
+      "tema": "Árbol de problemas: lluvia de ideas; convocatoria a autoridades sectoriales",
+      "fecha": "2026-10-12",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S025",
+      "mesa": 7,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-16",
+      "acta": false,
+      "asistentes": "7"
+    },
+    {
+      "id": "S026",
+      "mesa": 8,
+      "tema": "Árbol de problemas: lluvia de ideas",
+      "fecha": "2026-10-09",
+      "acta": true,
+      "asistentes": "6"
+    },
+    {
+      "id": "S027",
+      "mesa": 8,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-14",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S028",
+      "mesa": 9,
+      "tema": "Árbol de problemas: lluvia de ideas",
+      "fecha": "2026-10-13",
+      "acta": true,
+      "asistentes": "6"
+    },
+    {
+      "id": "S029",
+      "mesa": 9,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas",
+      "fecha": "2026-10-15",
+      "acta": true,
+      "asistentes": ""
+    },
+    {
+      "id": "S030",
+      "mesa": 10,
+      "tema": "Árbol de problemas: lluvia de ideas",
+      "fecha": "2026-10-12",
+      "acta": true,
+      "asistentes": "5"
+    },
+    {
+      "id": "S031",
+      "mesa": 10,
+      "tema": "Aprobación por consenso de la versión final del árbol de problemas (árbol del OEFA)",
+      "fecha": "2026-10-16",
+      "acta": false,
+      "asistentes": ""
+    },
+    {
+      "id": "S032",
+      "mesa": 11,
+      "tema": "Árbol de problemas: lluvia de ideas",
+      "fecha": "2026-10-12",
+      "acta": true,
+      "asistentes": "7"
+    },
+    {
+      "id": "S033",
+      "mesa": 11,
+      "tema": "Aprobación del árbol de RRHH y decisión de formular un segundo árbol de integridad",
+      "fecha": "2026-10-13",
+      "acta": true,
+      "asistentes": "7"
+    },
+    {
+      "id": "S034",
+      "mesa": 11,
+      "tema": "Aprobación por consenso del árbol de integridad pública",
+      "fecha": "2026-10-16",
+      "acta": true,
+      "asistentes": ""
+    }
+  ],
+  "corte": "2026-10-16"
+}
