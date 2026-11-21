@@ -215,3 +215,108 @@ a:focus-visible, button:focus-visible { outline: 2px solid #245a46; outline-offs
     transform: translateY(0);
   }
 }
+
+/* Cronograma: exploración temporal por períodos y selección de hito. */
+.milestone-shell{border:1px solid #d9e3df;border-radius:9px;background:#fff;overflow:hidden;box-shadow:0 5px 24px rgba(22,53,42,.035)}
+.milestone-top{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;align-items:center;padding:28px 30px;background:linear-gradient(117deg,#204f40 0%,#2b6851 75%,#37715d 100%);color:#fff}
+.milestone-heading h2{font-size:24px;font-weight:750;letter-spacing:-.035em;margin:7px 0}
+.milestone-heading p{font-size:13px;color:#d7e6de;max-width:720px;line-height:1.6}
+.milestone-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#e8f1eb;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.milestone-progress{border:1px solid #ffffff30;border-radius:7px;background:#ffffff0e;padding:15px 16px;min-width:0}
+.milestone-progress strong{font-size:28px;font-weight:750}
+.milestone-progress span{font-size:13px;color:#e1eee7}
+.milestone-progress-track{height:6px;border-radius:8px;margin-top:8px;background:#ffffff40;overflow:hidden}
+.milestone-progress-track span{display:block;height:100%;background:#c7e8d3;border-radius:8px;transition:width .2s}
+.milestone-progress small{display:block;margin-top:8px;color:#d3e5da;font-size:10px;line-height:1.4}
+.milestone-months{display:flex;gap:8px;padding:16px 24px;overflow-x:auto;border-bottom:1px solid #e0e7e5;background:#f6f9f7;scrollbar-width:thin}
+.milestone-months button{display:flex;align-items:center;gap:10px;flex:none;border:1px solid #d5e0dc;background:white;color:#435c53;border-radius:5px;padding:10px 13px;font-size:12px;font-weight:600;transition:background .16s,border-color .16s,color .16s}
+.milestone-months button:hover{border-color:#5b8977;background:#eef5f1}
+.milestone-months button.is-active{background:#255b47;color:#fff;border-color:#255b47}
+.milestone-months button strong{background:#e9efec;color:#405e51;border-radius:4px;padding:2px 6px;font-size:11px;font-variant-numeric:tabular-nums}
+.milestone-months button.is-active strong{background:#ffffff2b;color:white}
+.milestone-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);min-height:390px}
+.milestone-list{padding:20px 12px 20px 24px;max-height:640px;overflow-y:auto}
+.milestone-event{display:flex;align-items:stretch;gap:15px;width:100%;text-align:left;background:transparent;border-radius:6px;position:relative;padding:0 12px 0 0;color:#243732}
+.milestone-event:hover,.milestone-event.is-selected{background:#f0f7f2}
+.milestone-event-track{width:30px;flex:none;display:flex;flex-direction:column;align-items:center;padding-top:17px}
+.milestone-event-track>span{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:#f3eee4;color:#956b2e;border:1px solid #e5d8bf;font-size:10px;font-weight:750;position:relative;z-index:1}
+.milestone-event.is-done .milestone-event-track>span{background:#e3f2e8;color:#236045;border-color:#c1decf}
+.milestone-event.is-selected .milestone-event-track>span{background:#255b47;color:white;border-color:#255b47}
+.milestone-event-track i{display:block;flex:1;min-height:26px;width:2px;background:#d9e6df;margin-top:5px;margin-bottom:-4px}
+.milestone-event-body{display:flex;flex-direction:column;gap:4px;min-width:0;padding:14px 0 17px}
+.milestone-event-date{font-size:11px;font-weight:700;color:#3c6954}
+.milestone-event-date em{margin-left:8px;font-size:10px;font-weight:600;color:#927341;font-style:normal}
+.milestone-event.is-done .milestone-event-date em{color:#2b7454}
+.milestone-event-body strong{font-size:14px;line-height:1.42;font-weight:680;color:#253b34}
+.milestone-event-org{color:#75867e;font-size:11px;line-height:1.4}
+.milestone-event-arrow{align-self:center;margin-left:auto;flex:none;color:#8a9e95;opacity:0}
+.milestone-event:hover .milestone-event-arrow,.milestone-event.is-selected .milestone-event-arrow{opacity:1;color:#255b47}
+.milestone-detail{border-left:1px solid #e1e9e6;background:linear-gradient(150deg,#f9fbfa,#fff);padding:34px 30px;min-width:0}
+.milestone-detail-index{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
+.milestone-detail-index>span:first-child{font-size:11px;font-weight:800;letter-spacing:.13em;color:#567a65}
+.milestone-detail-index .done,.milestone-detail-index .pending{font-size:11px;font-weight:650;padding:5px 8px;border-radius:4px}
+.milestone-detail-index .done{background:#e9f5ed;color:#2c684b}
+.milestone-detail-index .pending{background:#fff1db;color:#906427}
+.milestone-detail-date{display:flex;align-items:center;gap:9px;margin-top:28px;font-weight:680;font-size:14px;color:#3b7157}
+.milestone-detail h3{font-size:21px;line-height:1.35;letter-spacing:-.02em;color:#223c31;font-weight:750;margin:13px 0}
+.milestone-detail>p{font-size:13px;line-height:1.7;color:#5e7169}
+.milestone-detail-org{display:flex;align-items:center;gap:12px;padding:15px;margin-top:23px;background:white;border:1px solid #e0e9e4;border-radius:5px;color:#557463}
+.milestone-detail-org span{display:flex;flex-direction:column;gap:3px}
+.milestone-detail-org small{font-size:10px;text-transform:uppercase;font-weight:750;color:#72897c}
+.milestone-detail-org strong{font-size:13px;color:#304a3e;line-height:1.4}
+.milestone-detail-source{display:flex;align-items:center;gap:9px;font-size:11px;line-height:1.5;margin-top:24px;color:#6d7974}
+.milestone-source-link{display:inline-flex;gap:7px;align-items:center;margin-top:12px;font-size:12px;font-weight:700;color:#285b44;text-decoration:underline;text-underline-offset:3px}
+.milestone-footnote{padding:14px 26px;font-size:11px;line-height:1.55;color:#687970;background:#f8faf8;border-top:1px solid #e3eae6}
+.milestone-empty{display:flex;align-items:center;gap:12px;color:#6b8076;padding:50px 28px}
+
+/* Archivo de gobernanza: consulta por clase documental. */
+.governance-stat{display:flex;align-items:center;gap:13px;padding:18px 20px;border-radius:6px;border:1px solid #dbe5e1;background:#fff}
+.governance-stat>svg{width:32px;height:32px;flex:none;color:#2c6951;background:#ecf5f0;padding:7px;border-radius:6px}
+.governance-stat>span{display:flex;flex-direction:column;gap:3px}
+.governance-stat strong{color:#223d30;font-size:13px;font-weight:700}
+.governance-stat small{color:#677b70;font-size:11px}
+.governance-filterbar{padding:17px 19px;background:#fff;border:1px solid #dae4df;border-radius:6px 6px 0 0}
+.governance-search{display:flex;align-items:center;gap:10px;border:1px solid #d3dfd9;background:#fafcfb;border-radius:5px;padding:0 12px;max-width:650px;color:#577466}
+.governance-search input{width:100%;height:40px;border:none;background:transparent;outline:0;color:#233f33;font-size:13px}
+.governance-search:focus-within{box-shadow:0 0 0 2px #b9d9c7}
+.governance-filters{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.governance-filters button{border:1px solid #dae4df;border-radius:5px;padding:7px 11px;color:#526a5c;background:#fff;font-size:11px;font-weight:680}
+.governance-filters button:hover{background:#eef6f1}
+.governance-filters button.is-active{background:#255b47;color:#fff;border-color:#255b47}
+.governance-list{border:1px solid #dae4df;border-top:0;background:#fff;border-radius:0 0 6px 6px;overflow:hidden}
+.governance-list-header{display:flex;justify-content:space-between;gap:12px;padding:11px 20px;background:#eef3f0;border-bottom:1px solid #dae4df;color:#3b5749;font-weight:700;font-size:12px}
+.governance-list-header span:last-child{font-weight:500;color:#677b70}
+.governance-item{display:grid;grid-template-columns:43px minmax(0,1fr) auto;gap:16px;align-items:center;padding:20px 22px;border-bottom:1px solid #e8eeea;transition:background .15s}
+.governance-item:last-child{border-bottom:0}
+.governance-item:hover{background:#f8fbf8}
+.governance-document-icon{display:grid;place-items:center;width:42px;height:47px;border:1px solid #d7e4db;color:#2d7251;background:#edf6ef;border-radius:5px}
+.governance-document-text{min-width:0}
+.governance-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.governance-tags span{display:inline-flex;background:#e9f3ec;color:#42684f;border-radius:3px;padding:3px 6px;font-size:10px;font-weight:750}
+.governance-tags span+span{background:#f1f3f4;color:#63747b}
+.governance-document-text h3{font-size:14px;line-height:1.4;color:#263e32;font-weight:700}
+.governance-document-text>p{font-size:12px;line-height:1.6;color:#6b7c71;margin-top:4px}
+.governance-document-text .governance-caution{display:flex;align-items:flex-start;gap:5px;font-size:11px;color:#937034;margin-top:8px}
+.governance-caution svg{flex:none;margin-top:2px}
+.governance-item>a{display:inline-flex;align-items:center;gap:6px;padding:9px;color:#255e45;font-size:12px;font-weight:700;white-space:nowrap;border:1px solid #d9e5dc;border-radius:4px}
+.governance-item>a:hover{background:#e5f2ea}
+.governance-empty{padding:30px 20px;font-size:13px;color:#63776e}
+.governance-footer{font-size:12px;line-height:1.6;margin-top:15px;color:#6c7c72}
+
+/* Ficha de sustentos: no atribuir evidencia de carpeta a un nodo sin cotejo. */
+.tree-card-hint{display:block;margin-top:7px;font-size:10px;font-weight:600;color:#3c6b54}
+.tree-abstract{background:#f1f7f3;border:1px solid #dbe9df;border-radius:6px;padding:14px;margin-top:17px}
+.tree-abstract .tree-detail-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#3c694f;font-weight:800}
+.tree-abstract>p:nth-child(2){font-size:13px;color:#2a4032;line-height:1.6;margin-top:7px}
+.tree-abstract small{display:block;font-size:10px;color:#617b67;margin-top:9px;line-height:1.5}
+.tree-original{margin-top:11px;border-bottom:1px solid #e2e8e4;padding:10px 0}
+.tree-original summary{cursor:pointer;font-size:11px;color:#386348;font-weight:700}
+.tree-original p{margin-top:8px;line-height:1.6;color:#52695b;font-size:12px}
+.tree-evidence{margin-top:18px;border-top:1px solid #e3e9e5;padding-top:18px}
+.tree-evidence h5{font-size:14px;font-weight:750;color:#294c38}
+.tree-evidence>p{color:#657b6c;font-size:11px;line-height:1.6;margin:8px 0 13px}
+.tree-evidence>a{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #dce7de;border-radius:5px;padding:10px;margin-top:7px;color:#2b6347;font-size:12px;font-weight:700;line-height:1.4}
+.tree-evidence>a:hover{background:#eff8f1;border-color:#b9d3c1}
+.tree-evidence>a svg:last-child{margin-left:auto;flex:none}
+@media(max-width:900px){.milestone-body{grid-template-columns:1fr}.milestone-list{max-height:380px}.milestone-detail{border-left:0;border-top:1px solid #e1e9e6}.milestone-top{grid-template-columns:1fr}.milestone-progress{max-width:270px}}
+@media(max-width:640px){.milestone-top{padding:22px 18px}.milestone-heading h2{font-size:21px}.milestone-months{padding:12px}.milestone-list{padding:12px}.milestone-detail{padding:22px 18px}.governance-item{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:17px 14px}.governance-item>a{grid-column:2;justify-self:start}.governance-filterbar{padding:14px}.governance-list-header{padding:12px 14px}}

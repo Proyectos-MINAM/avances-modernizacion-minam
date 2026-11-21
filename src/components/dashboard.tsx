@@ -50,6 +50,9 @@ import {
 import { saveCsv, cn } from '@/lib/utils';
 import { officialTreeFor, treeCsv } from '@/data/official-trees';
 import ProblemTreeView from './problem-tree';
+import MilestoneTimeline from './milestone-timeline';
+import GovernanceLibrary from './governance-library';
+import { sourcesForMesa, sourcesForTree } from '@/data/evidence';
 import { driveFile, driveFolder, mesaFolders, treeFiles, diagnosisFiles, meetingCounts, diagnosisDates, diagnosisCooperation, diagnosisProblems } from '@/data/documentary';
 import { Button, Card, Input, Select, Textarea, Pill } from './ui';
 
@@ -150,6 +153,7 @@ const ALL_SECTIONS = [
   'cooperantes',
   'reuniones-cooperantes',
   'espacios-dialogo',
+  'gobernanza',
   'resumen',
   'actualizar',
 ];
@@ -509,6 +513,26 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             </Link>
           </div>
 
+          {/* DOCUMENTOS DE GOBERNANZA DEL PROCESO */}
+          <div>
+            <p className="px-2 pb-1.5 text-[11px] font-semibold text-muted uppercase">
+              Documentos de Gobernanza de Proceso
+            </p>
+            <Link
+              href="/gobernanza"
+              onClick={() => setMenuOpen(false)}
+              className={cn(
+                'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] transition',
+                active === 'gobernanza'
+                  ? 'border-l-[3px] border-pine bg-[#e7f3ef] font-semibold text-pine'
+                  : 'border-l-[3px] border-transparent font-medium text-[#42555b] hover:bg-[#f1f6f5] hover:text-ink'
+              )}
+            >
+              <FileCheck2 size={17} />
+              <span>Documentos de Gobernanza</span>
+            </Link>
+          </div>
+
           {/* ACTUALIZAR AVANCES */}
           <div className="pt-2">
             <Link
@@ -559,6 +583,8 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                   ? 'Cooperantes: Registro de Reuniones'
                   : active === 'espacios-dialogo'
                   ? 'Espacios de Diálogo Multiactor'
+                  : active === 'gobernanza'
+                  ? 'Documentos de Gobernanza de Proceso'
                   : 'Registro y Actualización de Avance'}
               </p>
             </div>
@@ -625,39 +651,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 />
               </div>
 
-              {/* BARRA DE HORIZONTE TEMPORAL (120 DÍAS) */}
-              <Card className="mb-7 p-6 bg-white border-border">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-                  <div>
-                    <h2 className="text-base font-bold text-ink">Horizonte de 120 Días de la Modernización</h2>
-                    <p className="text-xs text-muted">
-                      Desde la vigencia del D.S. N.° 012-2026-MINAM hasta la aprobación del Informe Final de Reorganización
-                    </p>
-                  </div>
-                  <div className="text-xs font-medium text-muted">Periodo del proceso</div>
-                </div>
-
-                <div className="mt-5 space-y-2">
-                  <div className="institutional-horizon-labels flex justify-between text-xs text-muted">
-                    <span className="font-semibold text-pine">17 Set 2026 (D.S. 012)</span>
-                    <span className="font-medium text-[#2d5c4e]">16 Oct (12 Árboles)</span>
-                    <span className="font-medium text-[#0d735a]">17 Nov (70 Días / Diálogo)</span>
-                    <span className="font-medium text-[#8a5d14]">17 Dic (Medidas)</span>
-                    <span className="font-semibold text-ink">15 Ene 2027 (Informe Final)</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1" aria-label="Tres fases del proceso">
-                    <div className="h-1.5 bg-[#789386]" />
-                    <div className="h-1.5 bg-[#9aaea4]" />
-                    <div className="h-1.5 bg-[#cbd6d0]" />
-                  </div>
-                  <div className="flex justify-between text-[11px] text-muted pt-1">
-                    <span>Fase 1: Diagnóstico e Instalación</span>
-                    <span>Fase 2: Articulación y Validación</span>
-                    <span>Fase 3: Medidas y Cierre Final</span>
-                  </div>
-                </div>
-              </Card>
-
               {/* CRONOGRAMA INTERACTIVO: FILTRO POR REALIZADOS Y PENDIENTES */}
               <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                 <div className="inline-flex rounded-lg border border-border bg-white p-1 shadow-xs">
@@ -704,49 +697,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 </div>
               </div>
 
-              {/* TIMELINE DE TARJETAS */}
-              <div className="relative space-y-4 before:absolute before:bottom-3 before:left-5 before:top-3 before:w-0.5 before:bg-[#d6e4df]">
-                {filteredHitos.map((h) => (
-                  <div key={h.numero} className="relative flex items-start gap-4 pl-1">
-                    {/* Indicador numérico */}
-                    <div
-                      className={cn(
-                        'relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold shadow-xs',
-                        h.tipo === 'Realizado'
-                          ? 'bg-pine text-white ring-4 ring-[#e7f3ef]'
-                          : 'bg-[#fff3e1] text-[#9a641a] ring-4 ring-[#fcf5ea] border border-[#ecd5af]'
-                      )}
-                    >
-                      {h.numero}
-                    </div>
-
-                    {/* Tarjeta de hito */}
-                    <Card
-                      className={cn(
-                        'flex-1 p-5 transition hover:border-pine/50',
-                        h.tipo === 'Realizado' ? 'border-border bg-white' : 'border-[#fae3c3] bg-[#fffdfa]'
-                      )}
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-2.5">
-                        <div className="flex items-center gap-2">
-                          <span className="font-semibold text-xs text-pine bg-[#eaf4f0] px-2.5 py-0.5 rounded">
-                            {h.fecha}
-                          </span>
-                          <span className="text-xs text-muted">· {h.entidadResponsable}</span>
-                        </div>
-                        <Pill tone={h.tipo === 'Realizado' ? 'success' : 'warning'}>
-                          {h.tipo === 'Realizado' ? 'Hito Cumplido' : 'Acción Pendiente'}
-                        </Pill>
-                      </div>
-
-                      <h3 className="mt-2 text-base font-semibold text-ink">{h.titulo}</h3>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted">{h.descripcion}</p>
-                    </Card>
-                  </div>
-                ))}
-
-                {filteredHitos.length === 0 && <Empty message="No se encontraron hitos con los filtros actuales." />}
-              </div>
+              <MilestoneTimeline milestones={filteredHitos} />
             </>
           )}
 
@@ -1093,7 +1044,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 </div>
               </Card>
 
-              <ProblemTreeView key={officialTree.id} tree={officialTree} />
+              <ProblemTreeView key={officialTree.id} tree={officialTree} sources={sourcesForTree(officialTree.id)} />
             </>
           )}
 
@@ -1124,7 +1075,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                   <h2 className="text-sm font-bold text-ink">Registro de diagnósticos preliminares</h2>
                   <p className="mt-1 text-xs text-muted">Fuente: Informe N.° 000544-2026-SG-OGPP-OPM, cuadro 2.</p>
                 </div>
-                <Table headers={['Mesa', 'Eje Temático', 'Líder MINAM', 'Cooperante según informe', 'Problema identificado', 'Aprobación', 'Acta Oficial']}>
+                <Table headers={['Mesa', 'Eje Temático', 'Líder MINAM', 'Cooperante según informe', 'Problema identificado', 'Aprobación', 'Diagnóstico', 'Acta Oficial']}>
                   {mesasReales.map((m) => (
                     <tr key={m.id}>
                       <td className="font-semibold text-pine whitespace-nowrap">Mesa {String(m.id).padStart(2, '0')}</td>
@@ -1137,6 +1088,11 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       </td>
                       <td className="min-w-[260px] text-xs leading-relaxed text-muted">{diagnosisProblems[m.id-1]}</td>
                       <td className="whitespace-nowrap">{diagnosisDates[m.id-1]}</td>
+                      <td className="whitespace-nowrap">
+                        {sourcesForMesa(m.id) && (
+                          <a href={sourcesForMesa(m.id)!.narrative} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-pine"><ExternalLink size={14}/> Ver diagnóstico</a>
+                        )}
+                      </td>
                       <td className="whitespace-nowrap">
                         {diagnosisFiles[m.id] ? (
                           <a href={driveFile(diagnosisFiles[m.id])} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-pine"><ExternalLink size={14}/> Ver acta</a>
@@ -1433,7 +1389,20 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
           )}
 
           {/* ========================================================= */}
-          {/* VISTA 10: ACTUALIZAR AVANCES                              */}
+          {/* VISTA 10: DOCUMENTOS DE GOBERNANZA                       */}
+          {/* ========================================================= */}
+          {active === 'gobernanza' && (
+            <>
+              <Heading
+                title="Documentos de Gobernanza de Proceso"
+                subtitle="Base normativa, lineamientos, instrumentos de gestión, actas de la Instancia Directiva y seguimiento documental del proceso"
+              />
+              <GovernanceLibrary />
+            </>
+          )}
+
+          {/* ========================================================= */}
+          {/* VISTA 11: ACTUALIZAR AVANCES                              */}
           {/* ========================================================= */}
           {active === 'actualizar' && (
             <div className="max-w-2xl mx-auto">

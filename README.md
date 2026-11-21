@@ -21,6 +21,18 @@ Abrir **http://localhost:3000**.
 - `/propuestas` — Propuestas y documentos asociados.
 - `/sesiones` — Sesiones y actas.
 - `/actualizar` — Registro de avance por producto, responsable y observación.
+- `/cronograma` — Línea de tiempo interactiva, filtro por mes, búsqueda y ficha de hitos.
+- `/arboles-problemas` — Árboles interactivos; cada nodo ofrece un abstract descriptivo y enlaces al expediente de su mesa.
+- `/diagnosticos` — Índice de los documentos narrativos de diagnóstico y las actas disponibles en Drive.
+- `/gobernanza` — Biblioteca documental de gobernanza, con filtros, búsqueda, versiones y enlaces a los archivos de Drive.
+
+### Trazabilidad de fuentes de la actualización
+
+- `src/data/evidence.ts` cataloga las carpetas reales de diagnósticos y evidencias por mesa de trabajo. **La asociación de una evidencia concreta a cada causa o efecto sigue pendiente de cotejo individual**; la interfaz no afirma que los archivos de una carpeta sustenten automáticamente todos sus nodos.
+- Los abstracts mostrados al seleccionar un nodo son **extractos descriptivos del texto del árbol**; no sustituyen las narrativas técnicas firmadas ni constituyen hechos nuevos verificados.
+- `src/data/governance.ts` cataloga documentos hallados en el Drive del proceso. Se conservan las versiones y el estado de borrador donde aplica; una URL de Drive no implica aprobación administrativa.
+- Se recibieron versiones más recientes de **Lineamientos (05/10/2026)** y **Documento Orientador (06/10/2026)** como archivos adjuntos de revisión, pero las versiones localizadas en el Drive examinado son anteriores. Antes de presentarlas como vigentes en la plataforma debe incorporarse el documento final aprobado al Drive y reemplazarse su enlace.
+- La plataforma no proporciona backend de edición, autenticación institucional ni control de acceso propio. El acceso a los documentos depende de las ACL vigentes de Drive.
 
 ## Fuentes
 

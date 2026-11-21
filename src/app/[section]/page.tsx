@@ -11,6 +11,7 @@ export function generateStaticParams() {
     'cooperantes',
     'reuniones-cooperantes',
     'espacios-dialogo',
+    'gobernanza',
     'resumen',
     'acuerdos',
     'propuestas',
