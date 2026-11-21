@@ -237,7 +237,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
   const filteredCorrespondencia = useMemo(() => {
     return correspondenciaCooperantesMesas.filter((c) => {
-      if (cooperanteFilter !== 'all' && !c.organismoCooperante.toLowerCase().includes(cooperanteFilter.toLowerCase())) return false;
+      if (cooperanteFilter !== 'all' && c.organismoCooperante !== cooperanteFilter) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
@@ -1128,7 +1128,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             <>
               <Heading
                 title="Cuadro de Correspondencia entre Cooperantes y Mesas"
-                subtitle="Matriz oficial de acompañamiento técnico de organismos internacionales (Lámina 13 de la Presentación IDP)"
+                subtitle="Correspondencia por mesa y organismo, actualizada con el documento de integrantes, cooperantes y estado recibido el 21/11/2026"
                 action={
                   <Button variant="secondary" onClick={() => saveCsv(correspondenciaCooperantesMesas, 'correspondencia-cooperantes-minam.csv')}>
                     <Download size={16} /> Exportar Matriz CSV
@@ -1139,8 +1139,8 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <Kpi title="Mesas Asistidas" value="11 mesas" detail="100% con cooperante" icon={TableProperties} color="green" />
                 <Kpi title="Organismos Cooperantes" value="5 organismos" detail="BM, BID, UE, GIZ, SERVIR" icon={Handshake} color="blue" />
-                <Kpi title="Especialistas Asignados" value="14 consultores" detail="Expertos temáticos" icon={Users} color="green" />
-                <Kpi title="Articulación Técnica" value="100% avance" detail="Insumos y TDR aprobados" icon={CheckCircle2} color="gold" />
+                <Kpi title="Vínculos de Cooperación" value={correspondenciaCooperantesMesas.length} detail="Incluye apoyos múltiples en mesas 7 y 11" icon={Users} color="green" />
+                <Kpi title="Corte Documental" value="20/11/2026" detail="Últimos avances consignados" icon={CalendarDays} color="gold" />
               </div>
 
               {/* Filtro */}
@@ -1174,10 +1174,11 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Card className="overflow-hidden">
                 <div className="border-b border-border px-6 py-4">
                   <h2 className="text-sm font-bold text-ink">Matriz de Asignación y Acompañamiento Técnico Internacional</h2>
+                  <p className="mt-1 text-xs text-muted">Fuente: «Mesas de trabajo: integrantes, cooperantes y estado» (archivo recibido el 21/11/2026, con registros hasta el 20/11). Las Mesas 7 y 11 tienen dos organismos; el apoyo metodológico de GIZ a la Mesa 5 no se presenta como reasignación formal.</p>
                 </div>
                 <Table headers={['Mesa', 'Eje Temático', 'Líder MINAM', 'Organismo Cooperante', 'Profesional Responsable', 'Alcance del Apoyo Técnico', 'Últimos Avances']}>
                   {filteredCorrespondencia.map((c) => (
-                    <tr key={c.mesaId}>
+                    <tr key={c.mesaId + '-' + c.organismoCooperante}>
                       <td className="font-semibold text-pine whitespace-nowrap">Mesa {c.mesaId}</td>
                       <td className="min-w-[220px] font-medium text-xs text-ink">{c.mesaNombre}</td>
                       <td className="min-w-[170px] text-xs text-muted">{c.liderMINAM}</td>
@@ -1207,7 +1208,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             <>
               <Heading
                 title="Cooperantes: Directorio de Consultores y Especialistas"
-                subtitle="Perfil profesional, datos de contacto, organismo internacional y mesas asignadas de los expertos de modernización"
+                subtitle="Directorio según el documento de integrantes, cooperantes y estado; los contactos no consignados se omiten"
                 action={
                   <Button variant="secondary" onClick={() => saveCsv(perfilesCooperantes, 'perfiles-cooperantes-minam.csv')}>
                     <Download size={16} /> Exportar Directorio CSV
@@ -1217,9 +1218,9 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <Kpi title="Organismos Cooperantes" value="5 agencias" detail="BM, BID, UE, GIZ, SERVIR" icon={Building2} color="green" />
-                <Kpi title="Especialistas Acreditados" value={perfilesCooperantes.length} detail="Consultores y puntos focales" icon={Users} color="blue" />
+                <Kpi title="Especialistas Registrados" value={perfilesCooperantes.length} detail="Consultores y puntos focales del documento" icon={Users} color="blue" />
                 <Kpi title="Mesas Técnicas Asesoradas" value="11 mesas" detail="Cobertura total del sector" icon={Layers} color="green" />
-                <Kpi title="Modalidad de Apoyo" value="Asistencia Técnica" detail="Donación no reembolsable" icon={Handshake} color="gold" />
+                <Kpi title="Modalidad de Apoyo" value="Asistencia Técnica" detail="Consultoría y coordinación institucional" icon={Handshake} color="gold" />
               </div>
 
               {/* Filtros */}
@@ -1286,7 +1287,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 <Kpi title="Reuniones Registradas" value={reunionesCooperantesReales.length} detail="Sesiones técnicas y bilaterales" icon={CalendarCheck} color="green" />
                 <Kpi title="Institutos Articulados" value="4 IPIs" detail="SENAMHI, IIAP, INAIGEM, IGP" icon={Building2} color="blue" />
                 <Kpi title="Organismos en Mesa" value="5 entidades" detail="BM, BID, UE, GIZ, SERVIR" icon={Handshake} color="green" />
-                <Kpi title="Estado Acuerdos" value="100% al día" detail="Conformidad técnica bilateral" icon={CheckCircle2} color="gold" />
+                <Kpi title="Corte Documental" value="20/11/2026" detail="Último avance consignado" icon={CalendarDays} color="gold" />
               </div>
 
               {/* Filtro */}

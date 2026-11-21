@@ -28,6 +28,10 @@ Abrir **http://localhost:3000**.
 
 ### Trazabilidad de fuentes de la actualización
 
+- **Cooperantes (21/11/2026):** actualizado con el archivo recibido «Mesas_integrantes_cooperantes_estado (2).docx» (28 páginas). Incluye 11 mesas, 13 vínculos organismo–mesa (la Mesa 7 registra GIZ y BID; la Mesa 11 registra GIZ y SERVIR), consultores y reuniones documentadas hasta el 20/11. El documento muestra una fecha de composición «21 de octubre», pero incluye actualizaciones posteriores; la plataforma indica la fecha del último avance, no atribuye todo el contenido al 21/10.
+- **Ambigüedad Mesa 5:** el cuadro identifica al Banco Mundial como cooperante, pero su estado registra una reunión de GIZ y OPM el 20/11. Se preserva la asignación BM y se consigna la intervención GIZ como evento, sin deducir un cambio de cooperante.
+- **Validación de reuniones:** una reunión «agendada» no se marca como «realizada» sin confirmación explícita. Los datos de contacto no presentes en el documento se omiten. Los detalles de acuerdos no documentados se señalan como tales.
+
 - `src/data/evidence.ts` cataloga las carpetas reales de diagnósticos y evidencias por mesa de trabajo. **La asociación de una evidencia concreta a cada causa o efecto sigue pendiente de cotejo individual**; la interfaz no afirma que los archivos de una carpeta sustenten automáticamente todos sus nodos.
 - Los abstracts mostrados al seleccionar un nodo son **extractos descriptivos del texto del árbol**; no sustituyen las narrativas técnicas firmadas ni constituyen hechos nuevos verificados.
 - `src/data/governance.ts` cataloga documentos hallados en el Drive del proceso. Se conservan las versiones y el estado de borrador donde aplica; una URL de Drive no implica aprobación administrativa.
