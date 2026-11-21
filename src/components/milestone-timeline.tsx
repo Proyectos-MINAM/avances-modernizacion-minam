@@ -26,11 +26,11 @@ export default function MilestoneTimeline({ milestones }: { milestones: HitoHoja
   const completed = milestones.filter(h => h.tipo === 'Realizado').length;
   const ratio = milestones.length ? Math.round(completed * 100 / milestones.length) : 0;
 
-  return <section className="milestone-shell" aria-label="Línea de tiempo interactiva">
+  return <section className="milestone-shell" aria-label="Línea de Tiempo Proceso de Modernización MINAM">
     <div className="milestone-top">
       <div className="milestone-heading">
         <span className="milestone-eyebrow"><CalendarClock size={14} /> Ruta del proceso</span>
-        <h2>Línea de tiempo interactiva</h2>
+        <h2>Línea de Tiempo Proceso de Modernización MINAM</h2>
         <p>Explora los hitos por mes y selecciona una actividad para revisar su responsable, descripción y estado registrado.</p>
       </div>
       <div className="milestone-progress" aria-label={completed + ' de ' + milestones.length + ' hitos registrados como realizados'}>
