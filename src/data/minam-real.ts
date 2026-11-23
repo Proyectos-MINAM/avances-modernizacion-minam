@@ -3,7 +3,7 @@ export interface HitoHojaRuta {
   fecha: string;
   titulo: string;
   descripcion: string;
-  tipo: 'Realizado' | 'Pendiente';
+  tipo: 'Realizado' | 'En Curso' | 'Pendiente';
   entidadResponsable: string;
 }
 
@@ -241,21 +241,21 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     tipo: 'Realizado',
     entidadResponsable: 'Instancia Directiva del Proceso (IDP)',
   },
-  // Hitos Pendientes / Próximos (17 a 25)
+  // Seguimiento actualizado por Secretaría General: 22/11/2026.
   {
     numero: 17,
     fecha: '2026-11-17',
     titulo: 'Elevación del Informe de Avance (Primeros 70 Días)',
     descripcion: 'Remisión formal del informe de avance institucional al Despacho Ministerial y PCM.',
-    tipo: 'Pendiente',
+    tipo: 'Realizado',
     entidadResponsable: 'Secretaría General / OGPP',
   },
   {
     numero: 18,
-    fecha: '2026-11-17 al 24',
+    fecha: '2026-11-17',
     titulo: 'Ciclo de Espacios de Diálogo Ciudadano y Sectorial',
     descripcion: 'Desarrollo de encuentros de diálogo con juventudes, Poder Ejecutivo, ONGs, sociedad civil, academia y gremios empresariales.',
-    tipo: 'Pendiente',
+    tipo: 'En Curso',
     entidadResponsable: 'MINAM / Facilitación GIZ',
   },
   {
@@ -263,12 +263,12 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     fecha: '2026-12-11',
     titulo: 'Identificación y Selección de Medidas de Reforma',
     descripcion: 'Selección técnica de las medidas normativas, organizacionales y de procesos para la modernización.',
-    tipo: 'Pendiente',
+    tipo: 'En Curso',
     entidadResponsable: 'Mesas Técnicas / Consultores',
   },
   {
     numero: 20,
-    fecha: '2026-12-17',
+    fecha: '2026-11-27',
     titulo: 'Validación de Medidas de Reforma por la Instancia',
     descripcion: 'Reunión plenaria de la Instancia Directiva del Proceso (IDP) para validar la matriz de reformas.',
     tipo: 'Pendiente',
@@ -276,14 +276,6 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
   },
   {
     numero: 21,
-    fecha: '2026-12-21',
-    titulo: 'Remisión de Informes de Actividades de Líderes a OGPP',
-    descripcion: 'Entrega formal de los informes finales de actividades por los líderes de las 11 mesas a la OGPP.',
-    tipo: 'Pendiente',
-    entidadResponsable: 'Líderes de Mesas 1 a 11',
-  },
-  {
-    numero: 22,
     fecha: '2026-12-30',
     titulo: 'Elaboración del Informe Final Consolidado',
     descripcion: 'OGPP consolida el Informe Final del Proceso de Modernización y Reorganización del Sector Ambiental.',
@@ -291,7 +283,7 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     entidadResponsable: 'OGPP - OPM',
   },
   {
-    numero: 23,
+    numero: 22,
     fecha: '2027-01-06',
     titulo: 'Conformidad de Viceministerios y Secretaría General',
     descripcion: 'Revisión y firma de conformidad técnica de VMDERN, VMGA y SG.',
@@ -299,7 +291,7 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     entidadResponsable: 'VMDERN / VMGA / SG',
   },
   {
-    numero: 24,
+    numero: 23,
     fecha: '2027-01-15',
     titulo: 'Aprobación del Informe Final de Reorganización',
     descripcion: 'Cierre del plazo de 120 días calendario establecido por el D.S. N.° 012-2026-MINAM y aprobación del expediente final para remisión a PCM.',
@@ -307,7 +299,7 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     entidadResponsable: 'Despacho Ministerial / MINAM',
   },
   {
-    numero: 25,
+    numero: 24,
     fecha: '2027',
     titulo: 'Implementación de Medidas y Nuevo Marco Orgánico',
     descripcion: 'Ejecución del cronograma de implementación de la reestructuración y nuevo ROF institucional.',

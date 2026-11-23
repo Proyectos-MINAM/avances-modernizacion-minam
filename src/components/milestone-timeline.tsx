@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { HitoHojaRuta } from '@/data/minam-real';
-import { ArrowRight, CalendarClock, CalendarDays, CheckCircle2, ExternalLink, FilterX, Landmark, Users } from 'lucide-react';
+import { ArrowRight, CalendarClock, CalendarDays, CheckCircle2, Clock3, ExternalLink, FilterX, Landmark, Users } from 'lucide-react';
 import { driveFile } from '@/data/documentary';
 
 const labels: Record<string, string> = {
@@ -16,6 +16,10 @@ const monthKey = (fecha: string) => /^\d{4}-\d{2}/.test(fecha) ? fecha.slice(0, 
 const formatDate = (fecha: string) => /^\d{4}-\d{2}-\d{2}$/.test(fecha)
   ? new Date(fecha + 'T12:00:00').toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' })
   : fecha.replace(' al ', '–');
+const statusLabel = (tipo: HitoHojaRuta['tipo']) =>
+  tipo === 'Realizado' ? 'Realizado' : tipo === 'En Curso' ? 'En Curso' : 'Pendiente / previsto';
+const statusDetail = (tipo: HitoHojaRuta['tipo']) =>
+  tipo === 'Realizado' ? 'Registrado como realizado' : tipo === 'En Curso' ? 'Registrado en curso' : 'Registrado como pendiente';
 
 export default function MilestoneTimeline({ milestones }: { milestones: HitoHojaRuta[] }) {
   const [month, setMonth] = useState('all');
@@ -56,13 +60,13 @@ export default function MilestoneTimeline({ milestones }: { milestones: HitoHoja
       <div className="milestone-body">
         <div className="milestone-list" aria-label="Seleccionar hito">
           {visible.map((h, i) => <button
-            key={h.numero} type="button" aria-pressed={current?.numero === h.numero}
+            key={h.numero} type="button" data-hito={h.numero} aria-pressed={current?.numero === h.numero}
             onClick={() => setSelected(h.numero)}
-            className={'milestone-event ' + (current?.numero === h.numero ? 'is-selected ' : '') + (h.tipo === 'Realizado' ? 'is-done' : 'is-upcoming')}
+            className={'milestone-event ' + (current?.numero === h.numero ? 'is-selected ' : '') + (h.tipo === 'Realizado' ? 'is-done' : h.tipo === 'En Curso' ? 'is-in-progress' : 'is-upcoming')}
           >
-            <span className="milestone-event-track" aria-hidden="true"><span>{h.tipo === 'Realizado' ? <CheckCircle2 size={17} /> : String(h.numero).padStart(2, '0')}</span>{i < visible.length - 1 && <i />}</span>
+            <span className="milestone-event-track" aria-hidden="true"><span>{h.tipo === 'Realizado' ? <CheckCircle2 size={17} /> : h.tipo === 'En Curso' ? <Clock3 size={17} /> : String(h.numero).padStart(2, '0')}</span>{i < visible.length - 1 && <i />}</span>
             <span className="milestone-event-body">
-              <span className="milestone-event-date">{formatDate(h.fecha)} <em>{h.tipo === 'Realizado' ? 'Realizado' : 'Pendiente / previsto'}</em></span>
+              <span className="milestone-event-date">{formatDate(h.fecha)} <em>{statusLabel(h.tipo)}</em></span>
               <strong>{h.titulo}</strong>
               <span className="milestone-event-org">{h.entidadResponsable}</span>
             </span>
@@ -71,7 +75,7 @@ export default function MilestoneTimeline({ milestones }: { milestones: HitoHoja
         </div>
 
         {current && <article className="milestone-detail" aria-live="polite">
-          <div className="milestone-detail-index"><span>HITO {String(current.numero).padStart(2, '0')}</span><span className={current.tipo === 'Realizado' ? 'done' : 'pending'}>{current.tipo === 'Realizado' ? 'Registrado como realizado' : 'Registrado como pendiente'}</span></div>
+          <div className="milestone-detail-index"><span>HITO {String(current.numero).padStart(2, '0')}</span><span className={current.tipo === 'Realizado' ? 'done' : current.tipo === 'En Curso' ? 'in-progress' : 'pending'}>{statusDetail(current.tipo)}</span></div>
           <div className="milestone-detail-date"><CalendarDays size={17} /> {formatDate(current.fecha)}</div>
           <h3>{current.titulo}</h3>
           <p>{current.descripcion}</p>

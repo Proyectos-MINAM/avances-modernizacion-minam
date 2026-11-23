@@ -241,12 +241,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid #245a46; outline-offs
 .milestone-event-track{width:30px;flex:none;display:flex;flex-direction:column;align-items:center;padding-top:17px}
 .milestone-event-track>span{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:#f3eee4;color:#956b2e;border:1px solid #e5d8bf;font-size:10px;font-weight:750;position:relative;z-index:1}
 .milestone-event.is-done .milestone-event-track>span{background:#e3f2e8;color:#236045;border-color:#c1decf}
+.milestone-event.is-in-progress .milestone-event-track>span{background:#e5f3f5;color:#126b7a;border-color:#b8dce0}
 .milestone-event.is-selected .milestone-event-track>span{background:#255b47;color:white;border-color:#255b47}
 .milestone-event-track i{display:block;flex:1;min-height:26px;width:2px;background:#d9e6df;margin-top:5px;margin-bottom:-4px}
 .milestone-event-body{display:flex;flex-direction:column;gap:4px;min-width:0;padding:14px 0 17px}
 .milestone-event-date{font-size:11px;font-weight:700;color:#3c6954}
 .milestone-event-date em{margin-left:8px;font-size:10px;font-weight:600;color:#927341;font-style:normal}
 .milestone-event.is-done .milestone-event-date em{color:#2b7454}
+.milestone-event.is-in-progress .milestone-event-date em{color:#116b79}
 .milestone-event-body strong{font-size:14px;line-height:1.42;font-weight:680;color:#253b34}
 .milestone-event-org{color:#75867e;font-size:11px;line-height:1.4}
 .milestone-event-arrow{align-self:center;margin-left:auto;flex:none;color:#8a9e95;opacity:0}
@@ -254,8 +256,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid #245a46; outline-offs
 .milestone-detail{border-left:1px solid #e1e9e6;background:linear-gradient(150deg,#f9fbfa,#fff);padding:34px 30px;min-width:0}
 .milestone-detail-index{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
 .milestone-detail-index>span:first-child{font-size:11px;font-weight:800;letter-spacing:.13em;color:#567a65}
-.milestone-detail-index .done,.milestone-detail-index .pending{font-size:11px;font-weight:650;padding:5px 8px;border-radius:4px}
+.milestone-detail-index .done,.milestone-detail-index .pending,.milestone-detail-index .in-progress{font-size:11px;font-weight:650;padding:5px 8px;border-radius:4px}
 .milestone-detail-index .done{background:#e9f5ed;color:#2c684b}
+.milestone-detail-index .in-progress{background:#e6f4f6;color:#126b7a}
 .milestone-detail-index .pending{background:#fff1db;color:#906427}
 .milestone-detail-date{display:flex;align-items:center;gap:9px;margin-top:28px;font-weight:680;font-size:14px;color:#3b7157}
 .milestone-detail h3{font-size:21px;line-height:1.35;letter-spacing:-.02em;color:#223c31;font-weight:750;margin:13px 0}

@@ -28,6 +28,8 @@ Abrir **http://localhost:3000**.
 
 ### Trazabilidad de fuentes de la actualización
 
+- **Cronograma (22/11/2026, actualización directa de la SG):** informe de avance de 70 días realizado; espacios de diálogo en curso desde 2026-11-17; identificación y selección de medidas en curso; validación de medidas reprogramada a 2026-11-27; retiro del hito de remisión de informes de líderes. La fecha prevista 2026-12-11 de identificación no se alteró; aunque es posterior a la validación del 27/11, ambas fechas se mantienen según las instrucciones recibidas hasta su conciliación.
+
 - **Cooperantes (21/11/2026):** actualizado con el archivo recibido «Mesas_integrantes_cooperantes_estado (2).docx» (28 páginas). Incluye 11 mesas, 13 vínculos organismo–mesa (la Mesa 7 registra GIZ y BID; la Mesa 11 registra GIZ y SERVIR), consultores y reuniones documentadas hasta el 20/11. El documento muestra una fecha de composición «21 de octubre», pero incluye actualizaciones posteriores; la plataforma indica la fecha del último avance, no atribuye todo el contenido al 21/10.
 - **Ambigüedad Mesa 5:** el cuadro identifica al Banco Mundial como cooperante, pero su estado registra una reunión de GIZ y OPM el 20/11. Se preserva la asignación BM y se consigna la intervención GIZ como evento, sin deducir un cambio de cooperante.
 - **Validación de reuniones:** una reunión «agendada» no se marca como «realizada» sin confirmación explícita. Los datos de contacto no presentes en el documento se omiten. Los detalles de acuerdos no documentados se señalan como tales.

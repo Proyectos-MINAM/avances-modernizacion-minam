@@ -17,6 +17,28 @@ await call('Page.enable');await call('Runtime.enable');await call('Network.enabl
 const routes=['/','/cronograma','/mesas','/sesiones','/arboles-problemas','/diagnosticos','/cuadro-correspondencia','/cooperantes','/reuniones-cooperantes','/espacios-dialogo','/gobernanza','/actualizar'];
 for(const p of routes)await test('desktop '+p,async()=>{await go(p);assert.equal(await count('main h1'),1);assert((await js('document.documentElement.scrollWidth-innerWidth'))<=1)});
 await test('cronograma estados y panel interactivo',async()=>{await go('/cronograma');assert(await count('.milestone-months button')>=6);assert(await count('.milestone-event')>=20);await click('.milestone-event:nth-child(2)');assert(await js('document.querySelector(".milestone-detail").innerText.includes("HITO 02")'));await textClick('Hitos realizados');await wait(150);assert(await count('.milestone-event.is-upcoming')===0);assert(await count('.milestone-event.is-done')>0);await click('.milestone-months button:nth-child(2)');await wait(150);assert(await count('.milestone-event')>0&&await count('.milestone-event')<20)});
+await test('cronograma 22/11: 24 hitos, estados y fechas actualizados',async()=>{
+  await go('/cronograma');
+  assert.equal(await count('.milestone-event'),24);
+  assert.equal(await count('.milestone-event.is-done'),17);
+  assert.equal(await count('.milestone-event.is-in-progress'),2);
+  assert.equal(await count('.milestone-event.is-upcoming'),5);
+  assert(await js('document.querySelector(`[data-hito="17"]`).classList.contains("is-done")'));
+  assert(await js('document.querySelector(`[data-hito="18"]`).innerText.includes("17 nov")'));
+  assert(await js('document.querySelector(`[data-hito="18"]`).innerText.includes("En Curso")'));
+  assert(await js('document.querySelector(`[data-hito="19"]`).classList.contains("is-in-progress")'));
+  assert(await js('document.querySelector(`[data-hito="20"]`).innerText.includes("27 nov")'));
+  assert.equal(await js('document.querySelector("main").innerText.includes("Remisión de Informes de Actividades de Líderes a OGPP")'),false);
+  await click('[data-hito="21"]');
+  assert(await js('document.querySelector(".milestone-detail h3").innerText.includes("Elaboración del Informe Final Consolidado")'));
+  await textClick('En curso (2)');
+  await wait(150);
+  assert.equal(await count('.milestone-event'),2);
+  assert.equal(await count('.milestone-event.is-in-progress'),2);
+  await textClick('Pendientes (5)');
+  await wait(150);
+  assert.equal(await count('.milestone-event'),5);
+});
 await test('gobernanza inventario, filtro y búsqueda',async()=>{await go('/gobernanza');assert.equal(await count('.governance-item'),20);assert.equal(await count('aside a[href="/gobernanza"]'),1);await js('[...document.querySelectorAll(".governance-filters button")].find(x=>x.textContent==="Normativa").click()');assert.equal(await count('.governance-item'),2);await js('[...document.querySelectorAll(".governance-filters button")].find(x=>x.textContent==="Todos").click()');await input('sin coincidencia xyz');await wait(150);assert.equal(await count('.governance-item'),0)});
 await test('mesas 11, detalle, búsqueda y filtro',async()=>{await go('/mesas');assert.equal(await count('.mesa-strip'),11);await click('.mesa-strip:nth-child(7) button');await wait(200);assert(await js('document.querySelector("#detalle-mesa-seleccionada h2").innerText.includes("tecnologías de información")'));await input('sin coincidencia xyz');await wait(150);assert.equal(await count('.mesa-strip'),0);await input('');await wait(150);await select('Banco Mundial');await wait(150);assert(await count('.mesa-strip')>0&&await count('.mesa-strip')<11)});
 await test('cooperantes búsqueda y desplegable',async()=>{await go('/cooperantes');assert(await count('.profile-strip')>0);await click('.profile-strip');assert.equal(await count('details[open]'),1);await input('sin coincidencia xyz');await wait(150);assert.equal(await count('.profile-strip'),0)});

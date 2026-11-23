@@ -170,7 +170,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
   const [cooperanteFilter, setCooperanteFilter] = useState('all');
   const [mesaFilter, setMesaFilter] = useState('all');
   const [tipoSesionFilter, setTipoSesionFilter] = useState('all');
-  const [tipoHitoFilter, setTipoHitoFilter] = useState<'todos' | 'realizados' | 'pendientes'>('todos');
+  const [tipoHitoFilter, setTipoHitoFilter] = useState<'todos' | 'realizados' | 'en-curso' | 'pendientes'>('todos');
 
   // Selected entities
   const [selectedMesaId, setSelectedMesaId] = useState(1);
@@ -193,6 +193,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
   const filteredHitos = useMemo(() => {
     return hitosHojaRuta.filter((h) => {
       if (tipoHitoFilter === 'realizados') return h.tipo === 'Realizado';
+      if (tipoHitoFilter === 'en-curso') return h.tipo === 'En Curso';
       if (tipoHitoFilter === 'pendientes') return h.tipo === 'Pendiente';
       return true;
     }).filter((h) => {
@@ -673,6 +674,16 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                     )}
                   >
                     <CheckCircle2 size={14} /> Hitos realizados ({hitosHojaRuta.filter(h => h.tipo === 'Realizado').length})
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTipoHitoFilter('en-curso')}
+                    className={cn(
+                      'flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-xs font-semibold transition',
+                      tipoHitoFilter === 'en-curso' ? 'bg-pine text-white' : 'text-muted hover:text-ink'
+                    )}
+                  >
+                    <Clock3 size={14} /> En curso ({hitosHojaRuta.filter(h => h.tipo === 'En Curso').length})
                   </button>
                   <button
                     type="button"
