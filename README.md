@@ -28,6 +28,8 @@ Abrir **http://localhost:3000**.
 
 ### Trazabilidad de fuentes de la actualización
 
+- **Espacios de diálogo (23/11/2026):** agenda reconstruida con la «Ayuda Memoria_vf.docx», apartado «Etapa participativa externa: espacios de diálogo» (páginas 4-5). Se registran 4 jornadas realizadas: 2 con jóvenes el 17/11 (21 presenciales y 20 virtuales) y 2 jornadas con ONG y sociedad civil el 19 y 20/11 (14 representantes **en conjunto**, sin desglose diario); y 7 jornadas próximas: 23 y 24/11, 30/11, 02, 04, 07 y 11/12. La reunión del 23/11 figura como programada, no ejecutada, al corte de ese documento. No se atribuyen asistentes, instituciones concretas ni modalidad cuando la fuente no lo especifica.
+
 - **Cronograma (22/11/2026, actualización directa de la SG):** informe de avance de 70 días realizado; espacios de diálogo en curso desde 2026-11-17; identificación y selección de medidas en curso; validación de medidas reprogramada a 2026-11-27; retiro del hito de remisión de informes de líderes. La fecha prevista 2026-12-11 de identificación no se alteró; aunque es posterior a la validación del 27/11, ambas fechas se mantienen según las instrucciones recibidas hasta su conciliación.
 
 - **Cooperantes (21/11/2026):** actualizado con el archivo recibido «Mesas_integrantes_cooperantes_estado (2).docx» (28 páginas). Incluye 11 mesas, 13 vínculos organismo–mesa (la Mesa 7 registra GIZ y BID; la Mesa 11 registra GIZ y SERVIR), consultores y reuniones documentadas hasta el 20/11. El documento muestra una fecha de composición «21 de octubre», pero incluye actualizaciones posteriores; la plataforma indica la fecha del último avance, no atribuye todo el contenido al 21/10.

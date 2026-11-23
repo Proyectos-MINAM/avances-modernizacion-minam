@@ -87,8 +87,8 @@ export interface EspacioDialogoReal {
   fecha: string;
   objetivo: string;
   facilitacion: string;
-  estado: 'Confirmado' | 'En convocatoria';
-  participantesEstimados: string;
+  estado: 'Realizado' | 'Programado';
+  participantes: string;
   modalidad: string;
 }
 
@@ -254,7 +254,7 @@ export const hitosHojaRuta: HitoHojaRuta[] = [
     numero: 18,
     fecha: '2026-11-17',
     titulo: 'Ciclo de Espacios de Diálogo Ciudadano y Sectorial',
-    descripcion: 'Desarrollo de encuentros de diálogo con juventudes, Poder Ejecutivo, ONGs, sociedad civil, academia y gremios empresariales.',
+    descripcion: 'Espacios de diálogo iniciados el 17 de noviembre, con encuentros realizados con jóvenes y sociedad civil y agenda programada con otros actores hasta el 11 de diciembre de 2026.',
     tipo: 'En Curso',
     entidadResponsable: 'MINAM / Facilitación GIZ',
   },
@@ -1177,68 +1177,122 @@ export const reunionesCooperantesReales: ReunionCooperanteReal[] = [
 ];
 
 // -------------------------------------------------------------
-// 8. ESPACIOS DE DIÁLOGO CIUDADANO (Del 17 al 24 de noviembre)
+// 8. ESPACIOS DE DIÁLOGO CIUDADANO (Ayuda Memoria, 23/11/2026, págs. 4-5)
+// El documento confirma 2 sesiones juveniles y jornadas ONG el 19 y 20/11.
+// Los 14 representantes ONG corresponden al conjunto de ambos días: no
+// atribuir 14 participantes a cada jornada ni sumar esa cifra dos veces.
+// Los futuros encuentros se mantienen programados, sin anticipar su ejecución.
 // -------------------------------------------------------------
 export const espaciosDialogoReales: EspacioDialogoReal[] = [
   {
     id: 'ED-01',
-    grupoActor: 'Representantes de las Juventudes y Colectivos Ambientales',
+    grupoActor: 'Jóvenes — encuentro presencial',
     fecha: '2026-11-17',
-    objetivo: 'Recoger expectativas, propuestas y prioridades de las juventudes organizadas en torno a la educación, voluntariado y justicia ambiental.',
-    facilitacion: 'Facilitadores GIZ (Zorobabel Cancino / José Carlos Rodríguez)',
-    estado: 'Confirmado',
-    participantesEstimados: '35 delegados juveniles de nivel nacional',
-    modalidad: 'Presencial / Híbrida',
-  },
-  {
-    id: 'ED-02',
-    grupoActor: 'Entidades del Poder Ejecutivo (Sectores Productivos)',
-    fecha: '2026-11-18',
-    objetivo: 'Articular competencias sinérgicas y resolver controversias de límites funcionales con MINEM, PRODUCE, MIDAGRI, MTC y PCM.',
-    facilitacion: 'Secretaría General MINAM y Facilitación Metodológica GIZ',
-    estado: 'Confirmado',
-    participantesEstimados: 'Directores generales y asesores ministeriales de 6 sectores',
-    modalidad: 'Presencial (Sede Central MINAM)',
-  },
-  {
-    id: 'ED-03',
-    grupoActor: 'Organizaciones No Gubernamentales y Sociedad Civil (Grupo 1)',
-    fecha: '2026-11-19 al 20',
-    objetivo: 'Identificar propuestas de gobernanza ambiental, transparencia, acceso a la información y vigilancia comunitaria.',
-    facilitacion: 'GIZ / OGPP',
-    estado: 'Confirmado',
-    participantesEstimados: '40 representantes de ONGs ambientales',
-    modalidad: 'Presencial (Sala Paracas MINAM)',
-  },
-  {
-    id: 'ED-04',
-    grupoActor: 'Comunidad Académica y Universidades Científicas',
-    fecha: '2026-11-23',
-    objetivo: 'Vincular la producción científica universitaria con las necesidades de evidencia técnica para la toma de decisiones ambientales.',
-    facilitacion: 'VMDERN y GIZ',
-    estado: 'Confirmado',
-    participantesEstimados: 'Decanos e investigadores de UNI, UNALM, San Marcos, PUCP y UPCH',
-    modalidad: 'Híbrida',
-  },
-  {
-    id: 'ED-05',
-    grupoActor: 'Gremios Empresariales y Productivos',
-    fecha: '2026-11-24',
-    objetivo: 'Levantar opiniones y propuestas sobre simplificación de trámites, calidad regulatoria, economía circular y predictibilidad de licencias.',
-    facilitacion: 'Despacho Ministerial / VMGA / GIZ',
-    estado: 'Confirmado',
-    participantesEstimados: 'Representantes de CONFIEP, SNI, SNMPE, AGAP, ADEX y CCL',
+    objetivo: 'Espacio de diálogo con jóvenes en el marco de la modernización y reorganización del sector ambiental.',
+    facilitacion: 'GIZ',
+    estado: 'Realizado',
+    participantes: '21 asistentes presenciales.',
     modalidad: 'Presencial',
   },
   {
+    id: 'ED-02',
+    grupoActor: 'Jóvenes — encuentro virtual',
+    fecha: '2026-11-17',
+    objetivo: 'Espacio virtual de diálogo con jóvenes de distintas regiones del país.',
+    facilitacion: 'GIZ',
+    estado: 'Realizado',
+    participantes: '20 asistentes virtuales. Regiones mencionadas: Apurímac, San Martín, Loreto, Ayacucho, Piura y Lima.',
+    modalidad: 'Virtual',
+  },
+  {
+    id: 'ED-03',
+    grupoActor: 'ONG y organizaciones de la sociedad civil — jornada 1',
+    fecha: '2026-11-19',
+    objetivo: 'Primera jornada presencial de diálogo con ONG y otras organizaciones de la sociedad civil.',
+    facilitacion: 'GIZ',
+    estado: 'Realizado',
+    participantes: '14 representantes de organizaciones en total entre el 19 y el 20 de noviembre; sin desglose por fecha.',
+    modalidad: 'Presencial',
+  },
+  {
+    id: 'ED-04',
+    grupoActor: 'ONG y organizaciones de la sociedad civil — jornada 2',
+    fecha: '2026-11-20',
+    objetivo: 'Segunda jornada presencial de diálogo con ONG y otras organizaciones de la sociedad civil.',
+    facilitacion: 'GIZ',
+    estado: 'Realizado',
+    participantes: '14 representantes de organizaciones en total entre el 19 y el 20 de noviembre; sin desglose por fecha.',
+    modalidad: 'Presencial',
+  },
+  {
+    id: 'ED-05',
+    grupoActor: 'Equipos de trabajo con trayectoria en el sector ambiental',
+    fecha: '2026-11-23',
+    objetivo: 'Espacio de diálogo previsto con equipos de trabajo con trayectoria en el sector ambiental.',
+    facilitacion: 'GIZ',
+    estado: 'Programado',
+    participantes: 'Sin cifra de asistentes consignada en la Ayuda Memoria.',
+    modalidad: 'No especificada',
+  },
+  {
     id: 'ED-06',
-    grupoActor: 'Organizaciones de la Sociedad Civil y Redes Territoriales (Grupo 2)',
+    grupoActor: 'Academia, centros de investigación y colegios profesionales',
     fecha: '2026-11-24',
-    objetivo: 'Cierre del ciclo de diálogo ciudadano: balance de aportes recibidos e integración a las medidas de reforma.',
-    facilitacion: 'Secretaría General y GIZ',
-    estado: 'Confirmado',
-    participantesEstimados: 'Redes regionales de monitoreo ambiental y colegios profesionales',
-    modalidad: 'Híbrida',
+    objetivo: 'Espacio de diálogo previsto con academia, centros de investigación y colegios profesionales.',
+    facilitacion: 'GIZ',
+    estado: 'Programado',
+    participantes: 'Sin cifra de asistentes consignada en la Ayuda Memoria.',
+    modalidad: 'No especificada',
+  },
+  {
+    id: 'ED-07',
+    grupoActor: 'Actores del Poder Ejecutivo',
+    fecha: '2026-11-30',
+    objetivo: 'Espacio de diálogo previsto con actores del Poder Ejecutivo.',
+    facilitacion: 'GIZ',
+    estado: 'Programado',
+    participantes: 'Sin cifra de asistentes consignada en la Ayuda Memoria.',
+    modalidad: 'No especificada',
+  },
+  {
+    id: 'ED-08',
+    grupoActor: 'Pueblos indígenas u originarios — Grupo 01',
+    fecha: '2026-12-02',
+    objetivo: 'Primer espacio de diálogo previsto con representantes de pueblos indígenas u originarios.',
+    facilitacion: 'GIZ (facilitación) / OGASA (coordinación)',
+    estado: 'Programado',
+    participantes: 'Coordinado con la Oficina General de Asuntos Socioambientales (OGASA). Sin cifra de asistentes consignada.',
+    modalidad: 'Virtual',
+  },
+  {
+    id: 'ED-09',
+    grupoActor: 'Pueblos indígenas u originarios — Grupo 02',
+    fecha: '2026-12-04',
+    objetivo: 'Segundo espacio de diálogo previsto con representantes de pueblos indígenas u originarios.',
+    facilitacion: 'GIZ (facilitación) / OGASA (coordinación)',
+    estado: 'Programado',
+    participantes: 'Coordinado con OGASA. Sin cifra de asistentes consignada.',
+    modalidad: 'No especificada',
+  },
+  {
+    id: 'ED-10',
+    grupoActor: 'Pueblos indígenas u originarios — Grupo 03',
+    fecha: '2026-12-07',
+    objetivo: 'Tercer espacio de diálogo previsto con representantes de pueblos indígenas u originarios.',
+    facilitacion: 'GIZ (facilitación) / OGASA (coordinación)',
+    estado: 'Programado',
+    participantes: 'Coordinado con OGASA. Sin cifra de asistentes consignada.',
+    modalidad: 'No especificada',
+  },
+  {
+    id: 'ED-11',
+    grupoActor: 'Gremios',
+    fecha: '2026-12-11',
+    objetivo: 'Espacio de diálogo previsto con gremios.',
+    facilitacion: 'GIZ',
+    estado: 'Programado',
+    participantes: 'Sin cifra de asistentes consignada en la Ayuda Memoria.',
+    modalidad: 'No especificada',
   },
 ];
 

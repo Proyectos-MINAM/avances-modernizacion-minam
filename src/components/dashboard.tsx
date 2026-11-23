@@ -168,6 +168,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
   // Filters
   const [search, setSearch] = useState('');
   const [cooperanteFilter, setCooperanteFilter] = useState('all');
+  const [dialogoFilter, setDialogoFilter] = useState<'todos' | 'realizados' | 'proximos'>('todos');
   const [mesaFilter, setMesaFilter] = useState('all');
   const [tipoSesionFilter, setTipoSesionFilter] = useState('all');
   const [tipoHitoFilter, setTipoHitoFilter] = useState<'todos' | 'realizados' | 'en-curso' | 'pendientes'>('todos');
@@ -280,15 +281,18 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
   const filteredEspacios = useMemo(() => {
     return espaciosDialogoReales.filter((e) => {
+      if (dialogoFilter === 'realizados' && e.estado !== 'Realizado') return false;
+      if (dialogoFilter === 'proximos' && e.estado !== 'Programado') return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
         e.grupoActor.toLowerCase().includes(q) ||
         e.objetivo.toLowerCase().includes(q) ||
-        e.participantesEstimados.toLowerCase().includes(q)
+        e.participantes.toLowerCase().includes(q) ||
+        e.fecha.includes(q)
       );
     });
-  }, [search]);
+  }, [dialogoFilter, search]);
 
   return (
     <div className="flex min-h-screen bg-canvas font-sans text-ink">
@@ -1367,7 +1371,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             <>
               <Heading
                 title="Espacios de Diálogo Multiactor"
-                subtitle="Encuentros con actores clave del sector ambiental para recoger expectativas y propuestas de reforma (17 al 24 de noviembre) · Facilitación por GIZ"
+                subtitle="Agenda y resultados del 17 de noviembre al 11 de diciembre de 2026 · Facilitación por GIZ"
                 action={
                   <Button variant="secondary" onClick={() => saveCsv(espaciosDialogoReales, 'espacios-dialogo-minam.csv')}>
                     <Download size={16} /> Exportar Espacios CSV
@@ -1376,11 +1380,39 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <Kpi title="Espacios Programados" value={espaciosDialogoReales.length} detail="Encuentros estructurados" icon={MessagesSquare} color="green" />
-                <Kpi title="Facilitación Externa" value="GIZ" detail="José C. Rodríguez y Z. Cancino" icon={Handshake} color="blue" />
-                <Kpi title="Actores Convocados" value="180+ entidades" detail="Sociedad, gremios y academia" icon={Users} color="green" />
-                <Kpi title="Período de Realización" value="17 - 24 Nov" detail="Semana de consulta ciudadana" icon={CalendarDays} color="gold" />
+                <Kpi title="Encuentros Realizados" value={espaciosDialogoReales.filter(e => e.estado === 'Realizado').length} detail="17, 19 y 20 de noviembre" icon={MessagesSquare} color="green" />
+                <Kpi title="Próximos Encuentros" value={espaciosDialogoReales.filter(e => e.estado === 'Programado').length} detail="23 de noviembre al 11 de diciembre" icon={CalendarDays} color="blue" />
+                <Kpi title="Asistentes Reportados" value="55" detail="41 jóvenes y 14 de sociedad civil" icon={Users} color="green" />
+                <Kpi title="Facilitación" value="GIZ" detail="OGASA coordina grupos indígenas" icon={Handshake} color="gold" />
               </div>
+
+              <Card className="mb-5 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filtrar espacios de diálogo por estado">
+                    {([
+                      ['todos', 'Todos', espaciosDialogoReales.length],
+                      ['realizados', 'Realizados', espaciosDialogoReales.filter(e => e.estado === 'Realizado').length],
+                      ['proximos', 'Próximos', espaciosDialogoReales.filter(e => e.estado === 'Programado').length],
+                    ] as const).map(([value, label, count]) => (
+                      <button type="button" key={value} aria-pressed={dialogoFilter === value}
+                        onClick={() => setDialogoFilter(value)}
+                        className={cn('rounded-md border px-3 py-2 text-xs font-semibold transition',
+                          dialogoFilter === value ? 'border-pine bg-pine text-white' : 'border-border bg-white text-muted hover:bg-canvas hover:text-ink'
+                        )}>{label} ({count})</button>
+                    ))}
+                  </div>
+                  <div className="relative w-full sm:max-w-xs">
+                    <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+                    <Input value={search} onChange={e => setSearch(e.target.value)}
+                      placeholder="Buscar actor o fecha..." aria-label="Buscar espacios de diálogo" className="h-9 pl-9 text-xs" />
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-muted">
+                  Fuente: Ayuda Memoria del 23 de noviembre de 2026, sección «Etapa participativa externa».
+                  Los 14 asistentes de sociedad civil corresponden al total conjunto del 19 y 20 de noviembre.
+                  Los espacios futuros se muestran como programados, no como realizados.
+                </p>
+              </Card>
 
               <div className="record-list">
                 <div className="record-list-head"><span>Agenda de encuentros</span><span>{filteredEspacios.length} registros</span></div>
@@ -1392,7 +1424,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                       <div className="record-side"><Pill tone={statusTone(e.estado)}>{e.estado}</Pill><span className="record-label mt-2">Facilitación</span><span>{e.facilitacion}</span></div>
                       <span className="record-action">Ver detalle <ChevronDown size={16}/></span>
                     </summary>
-                    <div className="record-expanded"><p className="record-label mb-1">Entidades y participantes</p><p className="text-sm leading-relaxed">{e.participantesEstimados}</p><p className="mt-3 record-label">Objetivo</p><p className="text-sm leading-relaxed">{e.objetivo}</p></div>
+                    <div className="record-expanded"><p className="record-label mb-1">Participantes y coordinación</p><p className="text-sm leading-relaxed">{e.participantes}</p><p className="mt-3 record-label">Descripción del espacio</p><p className="text-sm leading-relaxed">{e.objetivo}</p></div>
                   </details>
                 ))}
                 {filteredEspacios.length===0&&<Empty/>}
