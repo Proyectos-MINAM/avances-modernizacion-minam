@@ -72,6 +72,45 @@ await test('listado sin BID, conservando sus reuniones y correspondencia',async(
 await test('correspondencia de 13 vínculos y doble asignación Mesa 7',async()=>{await go('/cuadro-correspondencia');assert.equal(await count('main tbody tr'),13);assert.equal(await js('[...document.querySelectorAll("main tbody tr")].filter(x=>x.cells[0].textContent.trim()==="Mesa 7").length'),2);await select('BID');await wait(150);assert.equal(await count('main tbody tr'),3);assert(await js('[...document.querySelectorAll("main tbody tr")].some(x=>x.cells[0].textContent.trim()==="Mesa 7")'));await select('SERVIR');await wait(150);assert.equal(await count('main tbody tr'),1)});
 await test('bitácora con reuniones 19 y 20 de noviembre',async()=>{await go('/reuniones-cooperantes');assert.equal(await count('main tbody tr'),17);assert(await js('document.querySelector("main").innerText.includes("RC-17")'));assert(await js('document.querySelector("main").innerText.includes("RC-14")'))});
 await test('diálogo desplegable',async()=>{await go('/espacios-dialogo');assert(await count('.dialogue-strip')>0);await click('.dialogue-strip');assert.equal(await count('details[open]'),1)});
+await test('galerías de 11 espacios: 15 fotos locales y nombres conservados',async()=>{
+  await go('/espacios-dialogo');
+  assert.equal(await count('[data-dialogue-gallery]'),11);
+  assert.equal(await js('[...document.querySelectorAll(".dialogue-gallery-count")].map(e=>e.innerText).join(",")'),'5 fotos,1 foto,2 fotos,1 foto,4 fotos,2 fotos,Sin fotografías,Sin fotografías,Sin fotografías,Sin fotografías,Sin fotografías');
+  await click('[data-dialogue-gallery="ED-01"]');
+  assert.equal(await count('[role="dialog"]'),1);
+  assert.equal(await count('[role="dialog"] img'),6);
+  assert(await js('document.querySelector("[role=dialog]").innerText.includes("ED_Juventud_Presencial_20261117_1.jpeg")'));
+  for(let i=0;i<20;i++){if(await js('document.querySelector("[role=dialog] img").complete&&document.querySelector("[role=dialog] img").naturalWidth>0'))break;await wait(100)}
+  assert(await js('document.querySelector("[role=dialog] img").naturalWidth===1600'),'La primera imagen no se renderizó');
+  await click('[aria-label="Fotografía siguiente"]');await wait(120);
+  assert(await js('document.querySelector("[role=dialog] [aria-live=polite]").innerText.includes("_2.jpeg")'));
+  await click('[aria-label="Ver fotografía 5: ED_Juventud_Presencial_20261117_5.jpeg"]');
+  assert(await js('document.querySelector("[role=dialog] [aria-live=polite]").innerText.includes("_5.jpeg")'));
+  await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await wait(120);
+  assert.equal(await count('[role="dialog"]'),0);
+  await click('[data-dialogue-gallery="ED-02"]');
+  assert.equal(await count('[role="dialog"] img'),2);
+  assert(await js('document.querySelector("[role=dialog] [aria-live=polite]").innerText.includes("ED_Juventud_Virtual_20261117_1.jpeg")'));
+  await click('[aria-label="Cerrar galería"]');
+  await click('[data-dialogue-gallery="ED-06"]');
+  assert.equal(await count('[role="dialog"] img'),3);
+  assert(await js('document.querySelector("[role=dialog] [aria-live=polite]").innerText.includes("ED_Academia_Presencial_20261124_1.jpeg")'));
+  await click('[aria-label="Cerrar galería"]');
+  await click('[data-dialogue-gallery="ED-07"]');
+  assert.equal(await count('[role="dialog"] img'),0);
+  assert(await js('document.querySelector("[role=dialog]").innerText.includes("Aún no hay fotografías registradas")'));
+  await click('[aria-label="Cerrar galería"]');
+});
+await test('galería: comportamiento responsive en móvil',async()=>{
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  await go('/espacios-dialogo');
+  await click('[data-dialogue-gallery="ED-05"]');
+  assert.equal(await count('[role="dialog"] img'),5);
+  assert(await js('document.querySelector("[role=dialog]").getBoundingClientRect().width<=390'));
+  assert(await js('document.documentElement.scrollWidth-innerWidth<=1'));
+  await click('[aria-label="Cerrar galería"]');
+  await call('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+});
 await test('diálogo según Ayuda Memoria 23/11: jornadas y estados',async()=>{
   await go('/espacios-dialogo');
   assert.equal(await count('.dialogue-strip'),11);
@@ -81,10 +120,10 @@ await test('diálogo según Ayuda Memoria 23/11: jornadas y estados',async()=>{
   assert.deepEqual(rows.map(x=>x.date),['2026-11-17','2026-11-17','2026-11-19','2026-11-20','2026-11-23','2026-11-24','2026-11-30','2026-12-02','2026-12-04','2026-12-07','2026-12-11']);
   assert(rows[4].name.includes('trayectoria')&&rows[4].state.includes('Programado'));
   assert(rows[6].name.includes('Ejecutivo')&&rows[8].name.includes('Grupo 02')&&rows[10].name.includes('Gremios'));
-  await click('.record-disclosure:nth-child(2) .record-strip');
-  assert(await js('document.querySelector(".record-disclosure:nth-child(2) .record-expanded").innerText.includes("21 asistentes")'));
-  await click('.record-disclosure:nth-child(4) .record-strip');
-  assert(await js('document.querySelector(".record-disclosure:nth-child(4) .record-expanded").innerText.includes("14 representantes de organizaciones en total")'));
+  await click('.dialogue-entry:nth-child(2) .record-strip');
+  assert(await js('document.querySelector(".dialogue-entry:nth-child(2) .record-expanded").innerText.includes("21 asistentes")'));
+  await click('.dialogue-entry:nth-child(4) .record-strip');
+  assert(await js('document.querySelector(".dialogue-entry:nth-child(4) .record-expanded").innerText.includes("14 representantes de organizaciones en total")'));
   await js('[...document.querySelectorAll("main button")].find(x=>x.textContent.trim()==="Próximos (7)").click()');
   await wait(150);
   assert.equal(await count('.dialogue-strip'),7);

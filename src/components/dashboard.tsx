@@ -15,6 +15,7 @@ import {
   Building2,
   Users,
   MessagesSquare,
+  Images,
   X,
   Menu,
   Search,
@@ -53,6 +54,8 @@ import { officialTreeFor } from '@/data/official-trees';
 import ProblemTreeView from './problem-tree';
 import MilestoneTimeline from './milestone-timeline';
 import GovernanceLibrary from './governance-library';
+import DialogueGallery from './dialogue-gallery';
+import { photosForDialogue } from '@/data/dialogue-photos';
 import { sourcesForMesa, sourcesForTree } from '@/data/evidence';
 import { driveFile, driveFolder, mesaFolders, treeFiles, diagnosisFiles, meetingCounts, diagnosisDates, diagnosisCooperation, diagnosisProblems } from '@/data/documentary';
 import { Button, Card, Input, Select, Textarea, Pill } from './ui';
@@ -171,6 +174,7 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
   const [search, setSearch] = useState('');
   const [cooperanteFilter, setCooperanteFilter] = useState('all');
   const [dialogoFilter, setDialogoFilter] = useState<'todos' | 'realizados' | 'proximos'>('todos');
+  const [galleryEventId, setGalleryEventId] = useState<string | null>(null);
   const [mesaFilter, setMesaFilter] = useState('all');
   const [tipoSesionFilter, setTipoSesionFilter] = useState('all');
   const [tipoHitoFilter, setTipoHitoFilter] = useState<'todos' | 'realizados' | 'en-curso' | 'pendientes'>('todos');
@@ -1446,15 +1450,34 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <div className="record-list">
                 <div className="record-list-head"><span>Agenda de encuentros</span><span>{filteredEspacios.length} registros</span></div>
                 {filteredEspacios.map(e=>(
-                  <details key={e.id} className="record-disclosure">
-                    <summary className="record-strip dialogue-strip">
-                      <div className="record-date"><CalendarDays size={19}/><strong>{e.fecha}</strong><span>{e.modalidad}</span></div>
-                      <div className="record-main"><h3>{e.grupoActor}</h3><p className="record-summary">{e.objetivo}</p></div>
-                      <div className="record-side"><Pill tone={statusTone(e.estado)}>{e.estado}</Pill><span className="record-label mt-2">Facilitación</span><span>{e.facilitacion}</span></div>
-                      <span className="record-action">Ver detalle <ChevronDown size={16}/></span>
-                    </summary>
-                    <div className="record-expanded"><p className="record-label mb-1">Participantes y coordinación</p><p className="text-sm leading-relaxed">{e.participantes}</p><p className="mt-3 record-label">Descripción del espacio</p><p className="text-sm leading-relaxed">{e.objetivo}</p></div>
-                  </details>
+                  <div key={e.id} className="dialogue-entry">
+                    <details className="record-disclosure">
+                      <summary className="record-strip dialogue-strip">
+                        <div className="record-date"><CalendarDays size={19}/><strong>{e.fecha}</strong><span>{e.modalidad}</span></div>
+                        <div className="record-main"><h3>{e.grupoActor}</h3><p className="record-summary">{e.objetivo}</p></div>
+                        <div className="record-side"><Pill tone={statusTone(e.estado)}>{e.estado}</Pill><span className="record-label mt-2">Facilitación</span><span>{e.facilitacion}</span></div>
+                        <span className="record-action">Ver detalle <ChevronDown size={16}/></span>
+                      </summary>
+                      <div className="record-expanded"><p className="record-label mb-1">Participantes y coordinación</p><p className="text-sm leading-relaxed">{e.participantes}</p><p className="mt-3 record-label">Descripción del espacio</p><p className="text-sm leading-relaxed">{e.objetivo}</p></div>
+                    </details>
+                    <div className="dialogue-gallery-actions">
+                      <button
+                        type="button"
+                        data-dialogue-gallery={e.id}
+                        onClick={() => setGalleryEventId(e.id)}
+                        className="dialogue-gallery-button"
+                        aria-label={'Abrir galería de ' + e.grupoActor}
+                      >
+                        <Images size={16} />
+                        <span>Galería</span>
+                        <span className="dialogue-gallery-count">
+                          {photosForDialogue(e.id).length
+                            ? photosForDialogue(e.id).length + (photosForDialogue(e.id).length === 1 ? ' foto' : ' fotos')
+                            : 'Sin fotografías'}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
                 ))}
                 {filteredEspacios.length===0&&<Empty/>}
               </div>
@@ -1618,6 +1641,15 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             </div>
           </div>
         </div>
+      )}
+      {galleryEventId && espaciosDialogoReales.find(e => e.id === galleryEventId) && (
+        <DialogueGallery
+          key={galleryEventId}
+          title={espaciosDialogoReales.find(e => e.id === galleryEventId)!.grupoActor}
+          date={espaciosDialogoReales.find(e => e.id === galleryEventId)!.fecha}
+          photos={photosForDialogue(galleryEventId)}
+          onClose={() => setGalleryEventId(null)}
+        />
       )}
     </div>
   );

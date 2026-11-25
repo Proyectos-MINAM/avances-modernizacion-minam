@@ -188,6 +188,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid #245a46; outline-offs
 .record-icon{display:grid;place-items:center;color:#245a46;background:#eef3f0;width:48px;height:48px;border-radius:5px}
 .profile-strip{grid-template-columns:52px minmax(0,1fr) minmax(150px,25%) auto}
 .dialogue-strip{grid-template-columns:minmax(106px,15%) minmax(0,1fr) minmax(140px,19%) auto}
+.dialogue-entry{border-bottom:1px solid #e2e7e9;background:#fff}
+.dialogue-entry:last-child{border-bottom:0}
+.dialogue-entry .record-strip{border-bottom:0;padding-bottom:10px}
+.dialogue-entry .record-expanded{border-bottom:0;padding-top:8px}
+.dialogue-gallery-actions{display:flex;justify-content:flex-end;padding:0 20px 14px}
+.dialogue-gallery-button{display:inline-flex;align-items:center;gap:8px;border:1px solid #bdd7c7;background:#f3faf5;color:#245c43;border-radius:6px;padding:8px 12px;font-size:12px;font-weight:700;transition:background .15s,border-color .15s;min-height:38px}
+.dialogue-gallery-button:hover{border-color:#80b199;background:#e8f5eb}
+.dialogue-gallery-button:focus-visible{outline:2px solid #245c43;outline-offset:2px}
+.dialogue-gallery-count{border-left:1px solid #c7dccd;padding-left:8px;font-size:11px;font-weight:600;color:#567a66}
 .record-date{display:flex;flex-direction:column;gap:4px;color:#245a46;font-size:12px;overflow-wrap:anywhere}
 .record-date strong{font-size:14px;font-weight:650}
 .record-date span{color:#52616a}
@@ -198,6 +207,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #245a46; outline-offs
 .record-expanded{border-bottom:1px solid #e2e7e9;padding:0 24px 20px 92px;color:#35434c;overflow-wrap:anywhere}
 @container (max-width:760px){.record-strip{grid-template-columns:62px minmax(0,1fr);gap:10px 15px;padding:15px}.record-side{grid-column:2}.record-action{grid-column:2;justify-content:flex-start;padding:2px 0}.record-expanded{padding:0 16px 16px}.dialogue-strip{grid-template-columns:92px minmax(0,1fr)}}
 @container (max-width:400px){.record-strip,.dialogue-strip{grid-template-columns:1fr}.record-number,.record-icon{width:56px}.record-side,.record-action{grid-column:1}}
+@container (max-width:400px){.dialogue-gallery-actions{justify-content:flex-start;padding-left:15px}}
 @container (max-width:680px){.tree-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @container (max-width:420px){.tree-grid{grid-template-columns:1fr}}
 @media(max-width:1000px){.tree-layout{display:block}.tree-detail{width:auto;border-left:0;border-top:1px solid #d7dfe1}.tree-diagram{padding:16px}}
