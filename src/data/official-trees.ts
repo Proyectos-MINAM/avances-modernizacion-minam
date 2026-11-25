@@ -15,4 +15,3 @@ export type ProblemTree = {id:string;mesa:string;eje:string;problemaCentral:stri
 // sergioalayo/arboles-minam, data/arboles.json, blob 1c71facc3fa0da3814fbb23c7fccc40d30338a23
 export const officialTrees:ProblemTree[]=[m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11rrhh,m11oii];
 export const officialTreeFor=(id:string)=>officialTrees.find(t=>t.id===(id==='ARB-11A'?'m11rrhh':id==='ARB-11B'?'m11oii':'m'+Number(id.replace('ARB-',''))))??officialTrees[0];
-export const treeCsv=()=>officialTrees.flatMap(t=>t.nodes.map(n=>({mesa:t.mesa,id:n.id,tipo:n.type,nivel:n.level,descripcion:n.description,organo:n.organo,fuente:n.fuente,conexiones:t.edges.filter(e=>e.source===n.id).map(e=>e.target).join(' | ')})));

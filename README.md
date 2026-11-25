@@ -17,16 +17,19 @@ Abrir **http://localhost:3000**.
 
 - `/` — Resumen ejecutivo, gráficos y alertas.
 - `/mesas` — 11 mesas, 47 productos, fichas y avances.
-- `/acuerdos` — Acuerdos, estado editable, búsqueda, filtros y exportación CSV.
+- `/acuerdos` — Ruta histórica; la navegación principal no la utiliza.
 - `/propuestas` — Propuestas y documentos asociados.
 - `/sesiones` — Sesiones y actas.
 - `/actualizar` — Registro de avance por producto, responsable y observación.
 - `/cronograma` — Línea de tiempo interactiva, filtro por mes, búsqueda y ficha de hitos.
+- `/ayuda-memoria` — Vista previa en PDF (5 páginas) y descarga del Word original «Ayuda_Memoria_vff.docx», adjuntado el 25/11/2026 y fechado el 23/11/2026.
 - `/arboles-problemas` — Árboles interactivos; cada nodo ofrece un abstract descriptivo y enlaces al expediente de su mesa.
 - `/diagnosticos` — Índice de los documentos narrativos de diagnóstico y las actas disponibles en Drive.
 - `/gobernanza` — Biblioteca documental de gobernanza, con filtros, búsqueda, versiones y enlaces a los archivos de Drive.
 
 ### Trazabilidad de fuentes de la actualización
+
+- **Actualización 25/11/2026:** el listado de especialistas deja de incluir los tres perfiles del BID, sin alterar las reuniones con el BID ni la asignación de cooperantes por mesa. Se retiran todos los botones de exportación CSV y el código que los generaba. La descarga de la Ayuda Memoria es exclusivamente documental (PDF y DOCX).
 
 - **Espacios de diálogo (23/11/2026):** agenda reconstruida con la «Ayuda Memoria_vf.docx», apartado «Etapa participativa externa: espacios de diálogo» (páginas 4-5). Se registran 4 jornadas realizadas: 2 con jóvenes el 17/11 (21 presenciales y 20 virtuales) y 2 jornadas con ONG y sociedad civil el 19 y 20/11 (14 representantes **en conjunto**, sin desglose diario); y 7 jornadas próximas: 23 y 24/11, 30/11, 02, 04, 07 y 11/12. La reunión del 23/11 figura como programada, no ejecutada, al corte de ese documento. No se atribuyen asistentes, instituciones concretas ni modalidad cuando la fuente no lo especifica.
 

@@ -3,6 +3,7 @@ import Dashboard from '@/components/dashboard';
 export function generateStaticParams() {
   return [
     'cronograma',
+    'ayuda-memoria',
     'mesas',
     'sesiones',
     'arboles-problemas',

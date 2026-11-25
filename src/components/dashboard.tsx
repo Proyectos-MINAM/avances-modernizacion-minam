@@ -28,6 +28,7 @@ import {
   FileCheck2,
   CalendarDays,
   ClipboardCheck,
+  FileText,
   UsersRound,
   Mail,
   Phone,
@@ -47,8 +48,8 @@ import {
   reunionesCooperantesReales,
   espaciosDialogoReales,
 } from '@/data/minam-real';
-import { saveCsv, cn } from '@/lib/utils';
-import { officialTreeFor, treeCsv } from '@/data/official-trees';
+import { cn } from '@/lib/utils';
+import { officialTreeFor } from '@/data/official-trees';
 import ProblemTreeView from './problem-tree';
 import MilestoneTimeline from './milestone-timeline';
 import GovernanceLibrary from './governance-library';
@@ -145,6 +146,7 @@ function Table({ headers, children }: { headers: string[]; children: ReactNode }
 
 const ALL_SECTIONS = [
   'cronograma',
+  'ayuda-memoria',
   'mesas',
   'sesiones',
   'arboles-problemas',
@@ -253,7 +255,9 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
 
   const filteredPerfiles = useMemo(() => {
     return perfilesCooperantes.filter((p) => {
-      if (cooperanteFilter !== 'all' && !p.organismo.toLowerCase().includes(cooperanteFilter.toLowerCase())) return false;
+      // BID está disponible en reuniones y correspondencia, pero no en el directorio.
+      // Si se navegó aquí con BID seleccionado en otra vista, mostrar el directorio completo.
+      if (cooperanteFilter !== 'all' && cooperanteFilter !== 'BID' && !p.organismo.toLowerCase().includes(cooperanteFilter.toLowerCase())) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
@@ -360,6 +364,21 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <CalendarRange size={17} />
               <span>Cronograma</span>
             </Link>
+            <div className="ml-3.5 mt-1 border-l-2 border-[#dbe6e4] pl-2.5">
+              <Link
+                href="/ayuda-memoria"
+                onClick={() => setMenuOpen(false)}
+                className={cn(
+                  'flex items-center gap-2 rounded-md px-2.5 py-2 text-[12.5px] transition',
+                  active === 'ayuda-memoria'
+                    ? 'border-l-[3px] border-pine bg-[#e7f3ef] font-semibold text-pine'
+                    : 'border-l-[3px] border-transparent font-medium text-[#4f646a] hover:bg-[#f1f6f5] hover:text-ink'
+                )}
+              >
+                <FileText size={15} />
+                <span>Ayuda Memoria</span>
+              </Link>
+            </div>
           </div>
 
           {/* GRUPO 2: MESAS DE TRABAJO (ACORDEÓN) */}
@@ -590,6 +609,8 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                   ? 'Espacios de Diálogo Multiactor'
                   : active === 'gobernanza'
                   ? 'Documentos de Gobernanza de Proceso'
+                  : active === 'ayuda-memoria'
+                  ? 'Ayuda Memoria del Proceso de Modernización'
                   : 'Registro y Actualización de Avance'}
               </p>
             </div>
@@ -606,14 +627,9 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 title="Cronograma de Modernización e Hitos del Sector Ambiente"
                 subtitle="Decreto Supremo N.° 012-2026-MINAM · Plazo total de 120 días calendario (17/09/2026 al 15/01/2027)"
                 action={
-                  <div className="flex items-center gap-3">
-                    <Button variant="secondary" onClick={() => saveCsv(hitosHojaRuta, 'cronograma-minam-oficial.csv')}>
-                      <Download size={16} /> Exportar Hitos CSV
-                    </Button>
-                    <Link href="/actualizar">
-                      <Button><FilePenLine size={16} /> Actualizar avance</Button>
-                    </Link>
-                  </div>
+                  <Link href="/actualizar">
+                    <Button><FilePenLine size={16} /> Actualizar avance</Button>
+                  </Link>
                 }
               />
 
@@ -717,6 +733,62 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
           )}
 
           {/* ========================================================= */}
+          {/* DOCUMENTO DE SEGUIMIENTO: AYUDA MEMORIA                   */}
+          {/* ========================================================= */}
+          {active === 'ayuda-memoria' && (
+            <>
+              <Heading
+                title="Ayuda Memoria"
+                subtitle="Reorganización MINAM · Estado de avance · Lima, 23 de noviembre de 2026"
+              />
+              <Card className="overflow-hidden">
+                <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-5 md:p-6">
+                  <div className="flex min-w-0 flex-1 items-start gap-3">
+                    <div className="rounded-lg bg-[#eaf4f0] p-3 text-pine"><FileText size={22}/></div>
+                    <div>
+                      <h2 className="text-base font-semibold text-ink">Ayuda Memoria · Reorganización MINAM</h2>
+                      <p className="mt-1 text-xs leading-relaxed text-muted">
+                        Documento recibido en formato Word. Vista previa íntegra de 5 páginas en PDF.
+                      </p>
+                      <p className="mt-1 text-xs text-muted">Última versión proporcionada: 25/11/2026</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <a href="/documentos/ayuda-memoria-23-11-2026.docx"
+                      download="Ayuda_Memoria_vff.docx"
+                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-pine px-4 py-2.5 text-sm font-semibold text-white hover:bg-forest">
+                      <Download size={16} /> Descargar Word
+                    </a>
+                    <a href="/documentos/ayuda-memoria-23-11-2026.pdf"
+                      download="Ayuda_Memoria_23-11-2026.pdf"
+                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:bg-canvas">
+                      <Download size={16} /> Descargar PDF
+                    </a>
+                  </div>
+                </div>
+                <div className="bg-[#f3f6f5] px-3 py-4 md:px-6 md:py-5">
+                  <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-semibold text-[#36554a]">Vista previa del documento</span>
+                    <a href="/documentos/ayuda-memoria-23-11-2026.pdf" target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-pine underline-offset-2 hover:underline">
+                      Abrir PDF en otra pestaña <ExternalLink size={14}/>
+                    </a>
+                  </div>
+                  <iframe
+                    src="/documentos/ayuda-memoria-23-11-2026.pdf#view=FitH"
+                    title="Vista previa de Ayuda Memoria, 23 de noviembre de 2026"
+                    className="h-[68vh] min-h-[430px] w-full rounded-md border border-[#d8e3de] bg-white md:h-[79vh]"
+                    loading="lazy"
+                  />
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    Si tu navegador no permite visualizar el PDF integrado, ábrelo en otra pestaña o descarga el archivo Word original.
+                  </p>
+                </div>
+              </Card>
+            </>
+          )}
+
+          {/* ========================================================= */}
           {/* VISTA 2: MESAS DE TRABAJO - INFORMACIÓN GENERAL           */}
           {/* ========================================================= */}
           {active === 'mesas' && (
@@ -725,16 +797,11 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                 title="Mesas de Trabajo: Información General"
                 subtitle="Ejes temáticos, directores y líderes responsables, integrantes acreditados por órgano y acompañamiento técnico internacional"
                 action={
-                  <div className="flex items-center gap-3">
-                    <Button variant="secondary" onClick={() => saveCsv(mesasReales, 'mesas-trabajo-minam.csv')}>
-                      <Download size={16} /> Exportar Directorio CSV
+                  <Link href="/actualizar">
+                    <Button>
+                      <FilePenLine size={16} /> Actualizar avance
                     </Button>
-                    <Link href="/actualizar">
-                      <Button>
-                        <FilePenLine size={16} /> Actualizar avance
-                      </Button>
-                    </Link>
-                  </div>
+                  </Link>
                 }
               />
 
@@ -896,11 +963,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Mesas de Trabajo: Sesiones Realizadas"
                 subtitle="Resumen del informe parcial y registros disponibles de las sesiones"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(sesionesReales, 'sesiones-minam-oficial.csv')}>
-                    <Download size={16} /> Exportar Bitácora CSV
-                  </Button>
-                }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1014,13 +1076,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Árboles de Problemas por Mesa Técnica"
                 subtitle="Diagnóstico metodológico causa-efecto de los 12 árboles aprobados formalmente en actas para la modernización del MINAM"
-                action={
-                  <div className="flex items-center gap-3">
-                    <Button variant="secondary" onClick={() => saveCsv(treeCsv(), 'arboles-problemas-minam.csv')}>
-                      <Download size={16} /> Exportar Matriz CSV
-                    </Button>
-                  </div>
-                }
               />
 
               {/* Selector de Árboles (12 árboles) */}
@@ -1071,11 +1126,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Mesas de Trabajo: Diagnósticos Preliminares"
                 subtitle="Informes oficiales aprobados en actas de sesión para la modernización institucional y nuevo ROF"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(mesasReales.map(m => ({mesa:m.id,eje:m.nombre,lider:m.lider,cooperante:diagnosisCooperation[m.id-1],problema:diagnosisProblems[m.id-1],fechaAprobacion:diagnosisDates[m.id-1]})), 'diagnosticos-minam-oficial.csv')}>
-                    <Download size={16} /> Exportar Matriz CSV
-                  </Button>
-                }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1144,11 +1194,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Cuadro de Correspondencia entre Cooperantes y Mesas"
                 subtitle="Correspondencia por mesa y organismo, actualizada con el documento de integrantes, cooperantes y estado recibido el 21/11/2026"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(correspondenciaCooperantesMesas, 'correspondencia-cooperantes-minam.csv')}>
-                    <Download size={16} /> Exportar Matriz CSV
-                  </Button>
-                }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1223,16 +1268,11 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
             <>
               <Heading
                 title="Cooperantes: Directorio de Consultores y Especialistas"
-                subtitle="Directorio según el documento de integrantes, cooperantes y estado; los contactos no consignados se omiten"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(perfilesCooperantes, 'perfiles-cooperantes-minam.csv')}>
-                    <Download size={16} /> Exportar Directorio CSV
-                  </Button>
-                }
+                subtitle="Directorio de especialistas del Banco Mundial, Unión Europea y GIZ. Los integrantes del BID se consultan mediante su registro de reuniones."
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <Kpi title="Organismos Cooperantes" value="5 agencias" detail="BM, BID, UE, GIZ, SERVIR" icon={Building2} color="green" />
+                <Kpi title="Organismos en Directorio" value="3 organismos" detail="Banco Mundial, UE y GIZ" icon={Building2} color="green" />
                 <Kpi title="Especialistas Registrados" value={perfilesCooperantes.length} detail="Consultores y puntos focales del documento" icon={Users} color="blue" />
                 <Kpi title="Mesas Técnicas Asesoradas" value="11 mesas" detail="Cobertura total del sector" icon={Layers} color="green" />
                 <Kpi title="Modalidad de Apoyo" value="Asistencia Técnica" detail="Consultoría y coordinación institucional" icon={Handshake} color="gold" />
@@ -1251,13 +1291,12 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
                     />
                   </div>
                   <Select
-                    value={cooperanteFilter}
+                    value={cooperanteFilter === 'BID' ? 'all' : cooperanteFilter}
                     onChange={(e) => setCooperanteFilter(e.target.value)}
                     className="h-10 text-xs"
                   >
                     <option value="all">Todos los Organismos</option>
                     <option value="Banco Mundial">Banco Mundial</option>
-                    <option value="BID">Banco Interamericano de Desarrollo (BID)</option>
                     <option value="Unión Europea">Unión Europea</option>
                     <option value="GIZ">Cooperación Alemana (GIZ)</option>
                     <option value="SERVIR">SERVIR</option>
@@ -1291,11 +1330,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Cooperantes: Registro de Reuniones de Coordinación"
                 subtitle="Bitácora cronológica de reuniones técnicas, mesas bilaterales con IPIs, ensayos y comités con organismos cooperantes"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(reunionesCooperantesReales, 'reuniones-cooperantes-minam.csv')}>
-                    <Download size={16} /> Exportar Bitácora CSV
-                  </Button>
-                }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1372,11 +1406,6 @@ export default function Dashboard({ section = 'cronograma' }: { section?: string
               <Heading
                 title="Espacios de Diálogo Multiactor"
                 subtitle="Agenda y resultados del 17 de noviembre al 11 de diciembre de 2026 · Facilitación por GIZ"
-                action={
-                  <Button variant="secondary" onClick={() => saveCsv(espaciosDialogoReales, 'espacios-dialogo-minam.csv')}>
-                    <Download size={16} /> Exportar Espacios CSV
-                  </Button>
-                }
               />
 
               <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
